@@ -65,10 +65,13 @@ public class CreateTemplateScript : EditorWindow
         "{\n" +
         "\tpublic class " + ClassName + (  ": MonoBehaviour\n") +
         "\t{\n\n" +
-        "\t\t///  INSPECTOR VARIABLES      ///\n\n" +
+        "\t\t///  INSPECTOR VARIABLES       ///\n\n" +
         "\t\t///  PRIVATE VARIABLES         ///\n\n" +
-        "\t\t///  PRIVATE METHODS          ///\n\n" +
-        "\t\t///  PUBLIC API               ///\n\n" +
+        "\t\t///  PRIVATE METHODS           ///\n\n" +
+        "\t\t///  LISTNER METHODS           ///\n\n" +
+        "\t\t///  PUBLIC API                ///\n\n" +
+        "\t\t///  IMPLEMENTATION            ///\n\n" +
+
         "\t}\n" +
         "}";
 

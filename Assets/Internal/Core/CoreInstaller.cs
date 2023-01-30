@@ -13,6 +13,6 @@ public class CoreInstaller : MonoInstaller
         Container.DeclareSignal<StateChangeSignal>();
 
         //singles
-        Container.Bind<StateManager>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<StateManager>().AsSingle().NonLazy();
     }
 }

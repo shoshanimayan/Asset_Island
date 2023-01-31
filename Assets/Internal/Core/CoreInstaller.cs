@@ -6,8 +6,7 @@ using Controllers;
 using Utility;
 public class CoreInstaller : MonoInstaller
 {
-    [SerializeField]
-    ControllerExtended _controllerExtended;
+    
     public override void InstallBindings()
     {
        
@@ -24,7 +23,7 @@ public class CoreInstaller : MonoInstaller
         // Container.BindInterfacesTo<ControllerExtended>().FromComponentInHierarchy().AsCached();
 
         //binding
-        Container.BindMediatorAndViewAsSingle<ControllerMediator, ControllerExtended>(_controllerExtended);
+        Container.BindMediatorAndViewAsSingle<ControllerMediator, ControllerExtended>();
 
 
     }

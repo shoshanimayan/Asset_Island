@@ -8,7 +8,7 @@ using UniRx;
 namespace Core
 {
 	public enum State {Loading,Menu,Pause,Play }
-	public class StateManager : IInitializable, IDisposable
+	public class StateManager : IstateManager
 	{
 
 
@@ -23,16 +23,11 @@ namespace Core
 
 		///  LISTNER METHODS          ///
 
-		private void OnStateChanged(State state)
-		{
-			_state = state;
-			Debug.Log(_state);
-		}
+		
 
 
 		///  PUBLIC API               ///
-		readonly SignalBus _signalBus;
-		readonly CompositeDisposable _disposables = new CompositeDisposable();
+		
 		
 
 		public State GetState()
@@ -40,31 +35,25 @@ namespace Core
 			return _state;
 		}
 
+		public void SetState(State state)
+		{
+			_signalBus.Fire(new StateChangeSignal() { ToState = state });
+
+		}
+
 
 		///    Implementation        ///
 
-
+		readonly SignalBus _signalBus;
 		public StateManager(SignalBus signalBus)
 		{
 			_signalBus = signalBus;
 
 			_state = State.Loading;
+			
 
 		}
 
-		public void Dispose()
-		{
-			_disposables.Dispose();
-		}
-
-
-		public void Initialize()
-		{
-			_signalBus.GetStream<StateChangeSignal>()
-					   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
-
-			_signalBus.Fire(new StateChangeSignal() { ToState = State.Play });
-
-		}
+		
 	}
 }

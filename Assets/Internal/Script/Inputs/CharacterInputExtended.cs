@@ -2,10 +2,16 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using CMF;
+using Zenject;
+using System;
+using UniRx;
+using Core;
+
 namespace Inputs
 {
 	public class CharacterInputExtended : CharacterInput
 	{
+
 
 		///  INSPECTOR VARIABLES      ///
 
@@ -14,6 +20,10 @@ namespace Inputs
 		///  PRIVATE METHODS          ///
 
 		///  PUBLIC API               ///
+
+		readonly SignalBus _signalBus;
+		readonly CompositeDisposable _disposables = new CompositeDisposable();
+
 		public override float GetHorizontalMovementInput()
 		{
 			throw new System.NotImplementedException();
@@ -24,9 +34,27 @@ namespace Inputs
 			throw new System.NotImplementedException();
 		}
 
+		public void Initialize()
+		{
+			//_signalBus.GetStream<StateChangeSignal>()
+			//					   .Subscribe(x => OnStateChanged(x.ToState)).AddTo(_disposables);
+		}
+
+		public void Dispose()
+		{
+			_disposables.Dispose();
+		}
+
 		public override bool IsJumpKeyPressed()
 		{
-			throw new System.NotImplementedException();
+			return false;
+		}
+
+		public CharacterInputExtended(SignalBus signalBus)
+		{
+			_signalBus = signalBus;
+
+
 		}
 	}
 }

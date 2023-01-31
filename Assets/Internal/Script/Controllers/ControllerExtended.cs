@@ -2,19 +2,25 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using CMF;
-
+using Zenject;
+using System;
+using UniRx;
+using Core;
 namespace Controllers
 {
-	public class ControllerExtended: AdvancedWalkerController
+	public class ControllerExtended : AdvancedWalkerController, IView
 	{
 
-		///  INSPECTOR VARIABLES      ///
 
-		///  PRIVATE VARIABLES         ///
+		protected override void Awake()
+		{
+			base.Awake();
+			gravity = 0;
+		}
 
-		///  PRIVATE METHODS          ///
-
-		///  PUBLIC API               ///
-
+		public void SetGravity(float Gravity)
+		{
+			gravity = Gravity;
+		}
 	}
 }

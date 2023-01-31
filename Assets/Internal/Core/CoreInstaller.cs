@@ -1,11 +1,18 @@
 using UnityEngine;
 using Zenject;
 using Core;
-
+using Inputs;
+using Controllers;
+using Utility;
 public class CoreInstaller : MonoInstaller
 {
+    [SerializeField]
+    ControllerExtended _controllerExtended;
     public override void InstallBindings()
     {
+       
+
+
         SignalBusInstaller.Install(Container);
 
 
@@ -13,6 +20,12 @@ public class CoreInstaller : MonoInstaller
         Container.DeclareSignal<StateChangeSignal>();
 
         //singles
-        Container.BindInterfacesTo<StateManager>().AsSingle().NonLazy();
+        Container.Bind<StateManager>().AsSingle();
+        // Container.BindInterfacesTo<ControllerExtended>().FromComponentInHierarchy().AsCached();
+
+        //binding
+        Container.BindMediatorAndViewAsSingle<ControllerMediator, ControllerExtended>(_controllerExtended);
+
+
     }
 }

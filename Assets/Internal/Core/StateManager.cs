@@ -7,7 +7,7 @@ using UniRx;
 
 namespace Core
 {
-	public enum State {Loading,Menu,Pause,Play }
+	public enum State {Loading,Menu,Pause,Play, Inspector}
 	public class StateManager : IstateManager
 	{
 
@@ -17,7 +17,7 @@ namespace Core
 
 		///  PRIVATE VARIABLES         ///
 		private State _state;
-
+		private State _prevState;
 
 		///  PRIVATE METHODS          ///
 
@@ -48,7 +48,7 @@ namespace Core
 		public StateManager(SignalBus signalBus)
 		{
 			_signalBus = signalBus;
-
+			
 			_state = State.Loading;
 			
 

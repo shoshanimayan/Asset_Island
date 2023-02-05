@@ -4,7 +4,7 @@ namespace Utility
 {
     public static class ZenjectExtensions
     {
-        public static void BindMediatorAndViewAsSingle<TMediator, TView>(this DiContainer container)
+        public static void BindMediatorView<TMediator, TView>(this DiContainer container)
             where TMediator : MediatorBase<TView>
             where TView : IView
         {

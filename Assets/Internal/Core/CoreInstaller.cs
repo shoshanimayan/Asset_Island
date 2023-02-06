@@ -24,8 +24,9 @@ public class CoreInstaller : MonoInstaller
 
         //binding
         Container.BindMediatorView<ControllerMediator, ControllerExtended>();
-     //   Container.BindMediatorView<CharacterInputExtendedMediator, CharacterInputExtendedView>();
+        Container.BindMediatorView<CharacterInputExtendedMediator, CharacterInputExtendedView>();
         Container.BindMediatorView<CameraInputExtendedMediator,CameraInputExtendedView>();
+        Container.BindMediatorView<ActionInputMediator, ActionInputView>();
 
 
     }

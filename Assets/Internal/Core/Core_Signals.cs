@@ -8,4 +8,6 @@ namespace Core
     {
         public State ToState;
     }
+
+    public class ActionInputSignal { }
 }

@@ -5,6 +5,7 @@ using Core;
 using Zenject;
 using System;
 using UniRx;
+using UnityEngine.InputSystem;
 
 namespace Inputs
 {
@@ -12,15 +13,15 @@ namespace Inputs
 	{
 
 		///  INSPECTOR VARIABLES       ///
-
+		
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
-		private bool _movementEnabled=true;
+		private bool _movementEnabled;
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(StateChangeSignal signal)
 		{
-			Debug.Log(signal);
+			
 			switch (signal.ToState)
 			{
 				case State.Play:

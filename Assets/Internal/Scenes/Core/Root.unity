@@ -439,10 +439,11 @@ GameObject:
   - component: {fileID: 114620729907041090}
   - component: {fileID: 54434734054373046}
   - component: {fileID: 136958806219237491}
-  - component: {fileID: 114444104657541022}
   - component: {fileID: 82932446342802492}
   - component: {fileID: 114453172139916662}
   - component: {fileID: 136958806219237492}
+  - component: {fileID: 136958806219237493}
+  - component: {fileID: 136958806219237494}
   m_Layer: 6
   m_Name: Root_Player
   m_TagString: Untagged
@@ -765,22 +766,6 @@ MonoBehaviour:
   extrapolatePosition: 0
   updateType: 0
   smoothType: 1
---- !u!114 &114444104657541022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1273852444066932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9819db9f56d8ad4c83e05807a209fc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalInputAxis: Horizontal
-  verticalInputAxis: Vertical
-  jumpKey: 32
-  useRawInput: 1
 --- !u!114 &114453172139916662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +833,7 @@ MonoBehaviour:
   upperVerticalLimit: 60
   lowerVerticalLimit: 60
   cameraSpeed: 200
-  smoothCameraRotation: 0
+  smoothCameraRotation: 1
   cameraSmoothingFactor: 25
 --- !u!114 &114824084910110899
 MonoBehaviour:
@@ -908,8 +893,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   airControlRate: 2
-  jumpSpeed: 0
-  jumpDuration: 0
+  jumpSpeed: 5
+  jumpDuration: 0.2
   airFriction: 0.5
   groundFriction: 100
   gravity: 0
@@ -917,6 +902,8 @@ MonoBehaviour:
   slopeLimit: 80
   useLocalMomentum: 1
   cameraTransform: {fileID: 4343463085848870}
+  _sprintInput: {fileID: 916840473752638833, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
 --- !u!114 &136958806219237492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,4 +934,34 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 20395501677103762}
+--- !u!114 &136958806219237493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273852444066932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2c08eed8115ee140b393b2fff3de720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: -1680190386980627800, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+  _jumpInput: {fileID: -6550754199141336996, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}
+--- !u!114 &136958806219237494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273852444066932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf9412fcf7b4014a91082d9a1d40c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ActionInput: {fileID: 1120369429361536294, guid: ca9f5fa95ffab41fb9a615ab714db018,
+    type: 3}

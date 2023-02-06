@@ -42,7 +42,6 @@ namespace Inputs
 		[Inject]
 		private SignalBus _signalBus;
 
-		[Inject]
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()

@@ -1,70 +1,72 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using Core;
 using Zenject;
-using System;
 using UniRx;
-using System.Threading.Tasks;
-
-namespace Controllers
+using System;
+using System.Collections;
+using System.Collections.Generic;
+namespace Inputs
 {
-	public class ControllerMediator: MediatorBase<ControllerExtended>, IInitializable, IDisposable
+	public class ActionInputMediator: MediatorBase<ActionInputView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
+		private bool _movementEnabled;
 
 		///  PRIVATE METHODS           ///
 
+		///  LISTNER METHODS           ///
 		private void OnStateChanged(StateChangeSignal signal)
 		{
 
 			switch (signal.ToState)
 			{
 				case State.Play:
-					view.SetGravity(30);
+					_movementEnabled = true;
 					break;
 				default:
-					view.SetGravity(0);
+					_movementEnabled = false;
 					break;
 			}
 		}
-
-		private async void DelayedStart()
+		///  PUBLIC API                ///
+		public bool MovementEnabled()
 		{
-			await Task.Delay(1 * 1000);
-			_stateManager.SetState(State.Play);
-
+			return _movementEnabled;
 		}
 
-		///          INJECTIONS        ///
+		public void DispatchActionSignal()
+		{
+			if (_movementEnabled)
+			{
+				_signalBus.Fire(new ActionInputSignal { });
+			}
+
+		}
+		///  IMPLEMENTATION            ///
+
 		[Inject]
+
 		private SignalBus _signalBus;
-
-		[Inject]
-		private StateManager _stateManager;
-
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
-			
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
-			DelayedStart();
+			view.Init(this);
+
 		}
 
 		public void Dispose()
 		{
+
 			_disposables.Dispose();
 
 		}
 
-
 	}
-
 }
-

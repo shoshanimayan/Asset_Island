@@ -1,19 +1,25 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+
 using CMF;
-using Zenject;
-using System;
-using UniRx;
+
 using Core;
+using UnityEngine.InputSystem;
+
 namespace Controllers
 {
 	public class ControllerExtended : AdvancedWalkerController, IView
 	{
 
+		[SerializeField] private InputActionReference _sprintInput;
+
+		
 
 		protected override void Awake()
 		{
+
+			_sprintInput.action.started += ctx => movementSpeed *= 1.5f;
+			_sprintInput.action.canceled += ctx => movementSpeed /= 1.5f;
+
 			base.Awake();
 			gravity = 0;
 		}

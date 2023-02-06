@@ -50,7 +50,7 @@ namespace CMF
 
 			//Connecting events to controller events;
 			controller.OnLand += OnLand;
-			controller.OnJump += OnJump;
+			controller.OnJump += Jumped;
 
 			if(!animator)
 				useAnimationBasedFootsteps = false;
@@ -117,11 +117,12 @@ namespace CMF
 			audioSource.PlayOneShot(landClip, audioClipVolume);
 		}
 
-		void OnJump(Vector3 _v)
+		public void  Jumped(Vector3 _v)
 		{
 			//Play jump audio clip;
 			audioSource.PlayOneShot(jumpClip, audioClipVolume);
 		}
+		
 	}
 }
 

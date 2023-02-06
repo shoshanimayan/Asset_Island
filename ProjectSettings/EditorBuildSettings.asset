@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Internal/Scenes/Core/Root.unity
     guid: 04399cc3070a4b44e983e7ac9333f1e7
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 5de80cd5736cd054097d2a132cee6142,
+      type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: cfd322c8f49e79244a34dc37731dc2a7,
       type: 2}

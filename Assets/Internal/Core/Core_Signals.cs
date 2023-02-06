@@ -9,5 +9,9 @@ namespace Core
         public State ToState;
     }
 
+    public class LoadSceneSignal 
+    {
+        public State StateToLoad;
+    }
     public class ActionInputSignal { }
 }

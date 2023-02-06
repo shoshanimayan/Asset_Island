@@ -46,7 +46,7 @@ namespace Inputs
 
 		public void Initialize()
 		{
-			view.Init(this);
+			_view.Init(this);
 
 			_signalBus.GetStream<StateChangeSignal>()
 								   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);

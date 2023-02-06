@@ -13,7 +13,7 @@ namespace Inputs
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-		private bool _movementEnabled;
+		private bool _enabled;
 
 		///  PRIVATE METHODS           ///
 
@@ -24,22 +24,36 @@ namespace Inputs
 			switch (signal.ToState)
 			{
 				case State.Play:
-					_movementEnabled = true;
+					_enabled = true;
 					break;
 				default:
-					_movementEnabled = false;
+					_enabled = false;
 					break;
 			}
 		}
 		///  PUBLIC API                ///
 		public bool MovementEnabled()
 		{
-			return _movementEnabled;
+			return _enabled;
+		}
+
+		public void DispatchPause()
+		{
+			if (_enabled)
+			{
+				_stateManager.SetState(State.Pause);
+				return;
+			}
+			else if (_stateManager.GetState() == State.Pause)
+			{
+				_stateManager.ToPreviousState();
+			}
+			
 		}
 
 		public void DispatchActionSignal()
 		{
-			if (_movementEnabled)
+			if (_enabled)
 			{
 				_signalBus.Fire(new ActionInputSignal { });
 			}
@@ -48,16 +62,17 @@ namespace Inputs
 		///  IMPLEMENTATION            ///
 
 		[Inject]
-
 		private SignalBus _signalBus;
 
+		[Inject]
+		private StateManager _stateManager;
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
-			view.Init(this);
+			_view.Init(this);
 
 		}
 

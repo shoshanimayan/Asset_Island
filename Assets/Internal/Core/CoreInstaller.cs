@@ -4,6 +4,7 @@ using Core;
 using Inputs;
 using Controllers;
 using Utility;
+using General;
 public class CoreInstaller : MonoInstaller
 {
     
@@ -17,6 +18,7 @@ public class CoreInstaller : MonoInstaller
 
         //Signals
         Container.DeclareSignal<StateChangeSignal>();
+        Container.DeclareSignal<LoadSceneSignal>();
 
         //singles
         Container.Bind<StateManager>().AsSingle();
@@ -27,6 +29,7 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<CharacterInputExtendedMediator, CharacterInputExtendedView>();
         Container.BindMediatorView<CameraInputExtendedMediator,CameraInputExtendedView>();
         Container.BindMediatorView<ActionInputMediator, ActionInputView>();
+        Container.BindMediatorView<SceneManagerMediator,SceneManagerView>();
 
 
     }

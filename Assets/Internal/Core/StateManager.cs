@@ -41,6 +41,11 @@ namespace Core
 
 		}
 
+		public void ToPreviousState()
+		{
+			SetState(_prevState);
+		}
+
 
 		///    Implementation        ///
 
@@ -48,7 +53,7 @@ namespace Core
 		public StateManager(SignalBus signalBus)
 		{
 			_signalBus = signalBus;
-			
+			_prevState = _state;	
 			_state = State.Loading;
 			
 

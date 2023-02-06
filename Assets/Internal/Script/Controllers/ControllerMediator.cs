@@ -24,10 +24,10 @@ namespace Controllers
 			switch (signal.ToState)
 			{
 				case State.Play:
-					view.SetGravity(30);
+					_view.SetGravity(30);
 					break;
 				default:
-					view.SetGravity(0);
+					_view.SetGravity(0);
 					break;
 			}
 		}
@@ -54,7 +54,6 @@ namespace Controllers
 			
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
-			DelayedStart();
 		}
 
 		public void Dispose()

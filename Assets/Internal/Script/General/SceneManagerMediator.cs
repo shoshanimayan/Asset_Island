@@ -1,0 +1,126 @@
+using UnityEngine;
+using Core;
+using Zenject;
+using UniRx;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.ResourceProviders;
+
+namespace General
+{
+	public class SceneManagerMediator: MediatorBase<SceneManagerView>, IInitializable, IDisposable
+	{
+
+        ///  INSPECTOR VARIABLES       ///
+
+        ///  PRIVATE VARIABLES         ///
+        private AsyncOperationHandle<SceneInstance> _handle;
+        private bool _unloaded = true;
+        private State _stateLoading;
+        ///  PRIVATE METHODS           ///
+        
+
+        private void Load(AssetReference scene)
+        {
+
+            Debug.Log("loading level");
+            if (!_unloaded)
+            {
+                _unloaded = true;
+                UnloadScene();
+            }
+            Addressables.LoadSceneAsync(scene, UnityEngine.SceneManagement.LoadSceneMode.Additive).Completed += SceneLoadCompleted;
+        }
+
+        private void SceneLoadCompleted(AsyncOperationHandle<SceneInstance> obj)
+        {
+            if (obj.Status == AsyncOperationStatus.Succeeded)
+            {
+                _handle = obj;
+                _unloaded = false;
+                switch (_stateLoading)
+                {
+                    case State.Play:
+                        _stateManager.SetState(_stateLoading);
+                        break;
+                    case State.Menu:
+                        _stateManager.SetState(_stateLoading);
+                        break;
+                }
+                Debug.Log(_stateLoading.ToString()+ " loaded");
+            }
+        }
+
+        private void UnloadScene()
+        {
+            Debug.Log("unloading "+ _stateLoading.ToString());
+
+            Addressables.UnloadSceneAsync(_handle, true).Completed += op =>
+            {
+                if (op.Status == AsyncOperationStatus.Succeeded)
+                {
+                    Debug.Log("Successfully unloaded scene.");
+                }
+                else
+                {
+                    Debug.Log(op.Status.ToString());
+                }
+            };
+        }
+        ///  LISTNER METHODS           ///
+        private void OnLoadSceneChanged(LoadSceneSignal signal)
+        {
+            _stateManager.SetState(State.Loading);
+            _stateLoading = signal.StateToLoad;
+            switch (signal.StateToLoad)
+            {
+                case State.Play:
+                    
+                    Load(_view.GetLevelAsset());
+                    break;
+                case State.Menu:
+                    Load(_view.GetMenuAsset());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        ///  PUBLIC API                ///
+
+
+        ///  IMPLEMENTATION            ///
+
+        [Inject]
+        private StateManager _stateManager;
+
+        [Inject]
+		private SignalBus _signalBus;
+
+		readonly CompositeDisposable _disposables = new CompositeDisposable();
+
+		public void Initialize()
+		{
+            _signalBus.GetStream<LoadSceneSignal>()
+                       .Subscribe(x => OnLoadSceneChanged(x)).AddTo(_disposables);
+            _view.Init(this);
+            _stateManager.SetState(State.Loading);
+            _stateLoading = State.Play;
+            Load(_view.GetLevelAsset());
+
+
+
+        }
+
+        public void Dispose()
+		{
+
+			_disposables.Dispose();
+
+		}
+
+	}
+}

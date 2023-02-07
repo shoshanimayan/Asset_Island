@@ -14,11 +14,14 @@ public class ExtendedButton : Button
     {
         base.OnSelect(eventData);
         _selectedEvent.Invoke();
+        targetGraphic.color = colors.selectedColor;
+
     }
 
     public override void OnDeselect(BaseEventData eventData)
     {
         base.OnSelect(eventData);
+        targetGraphic.color = colors.normalColor;
         _deselectedEvent.Invoke();
     }
 
@@ -26,12 +29,16 @@ public class ExtendedButton : Button
     {
         base.OnPointerEnter(eventData);
         _selectedEvent.Invoke();
+        targetGraphic.color = colors.selectedColor;
+
 
     }
 
     public override void OnPointerExit(PointerEventData eventData)
     {
         base.OnPointerExit(eventData);
+        targetGraphic.color = colors.normalColor;
+
         _deselectedEvent.Invoke();
 
     }

@@ -5,6 +5,8 @@ namespace Zenject.Tests.TestDestructionOrder
         public override void InstallBindings()
         {
             Container.BindInterfacesTo<FooDisposable3>().AsSingle();
+
+           
         }
     }
 }

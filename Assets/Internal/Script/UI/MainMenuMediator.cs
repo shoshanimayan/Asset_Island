@@ -5,6 +5,7 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Core;
 namespace UI
 {
 	public class MainMenuMediator: MediatorBase<MainMenuView>, IInitializable, IDisposable
@@ -20,10 +21,14 @@ namespace UI
 
 		///  PUBLIC API                ///
 
+		public void PlayGame()
+		{
+			_signalBus.Fire(new LoadSceneSignal{ StateToLoad = State.Play });
+		}
+
 		///  IMPLEMENTATION            ///
 
 		[Inject]
-
 		private SignalBus _signalBus;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();

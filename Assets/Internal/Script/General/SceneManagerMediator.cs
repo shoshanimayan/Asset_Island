@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 
 namespace General
 {
@@ -73,6 +74,8 @@ namespace General
         ///  LISTNER METHODS           ///
         private void OnLoadSceneChanged(LoadSceneSignal signal)
         {
+
+
             _stateManager.SetState(State.Loading);
             _stateLoading = signal.StateToLoad;
             switch (signal.StateToLoad)
@@ -107,9 +110,26 @@ namespace General
             _signalBus.GetStream<LoadSceneSignal>()
                        .Subscribe(x => OnLoadSceneChanged(x)).AddTo(_disposables);
             _view.Init(this);
-            _stateManager.SetState(State.Loading);
-            _stateLoading = State.Play;
-            Load(_view.GetLevelAsset());
+            if (SceneManager.sceneCount == 1)
+            {
+                _stateManager.SetState(State.Loading);
+                _stateLoading = State.Menu;
+                Load(_view.GetMenuAsset());
+            }
+            else
+            {
+                //just for testing in editor
+                if (SceneManager.GetSceneAt(0).name.Contains("Menu"))
+                {
+                    _stateManager.SetState(State.Menu);
+
+                }
+                else
+                {
+                    _stateManager.SetState(State.Play);
+
+                }
+            }
 
 
 

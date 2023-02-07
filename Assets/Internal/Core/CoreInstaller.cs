@@ -13,16 +13,9 @@ public class CoreInstaller : MonoInstaller
        
 
 
-        SignalBusInstaller.Install(Container);
+       
 
-
-        //Signals
-        Container.DeclareSignal<StateChangeSignal>();
-        Container.DeclareSignal<LoadSceneSignal>();
-
-        //singles
-        Container.Bind<StateManager>().AsSingle();
-        // Container.BindInterfacesTo<ControllerExtended>().FromComponentInHierarchy().AsCached();
+       
 
         //binding
         Container.BindMediatorView<ControllerMediator, ControllerExtended>();

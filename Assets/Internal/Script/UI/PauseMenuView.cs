@@ -8,7 +8,8 @@ namespace UI
 	{
 
 		///  INSPECTOR VARIABLES       ///
-
+		[SerializeField] private Canvas _pauseCanvas;
+		[SerializeField] private ExtendedButton _firstButton;
 		///  PRIVATE VARIABLES         ///
 		private PauseMenuMediator _mediator;
 
@@ -18,6 +19,25 @@ namespace UI
 		public void Init(PauseMenuMediator mediator)
 		{
 			_mediator = mediator;
+		}
+
+		public void Continue()
+		{
+			_mediator.Unpause();
+		}
+
+		public void Menu()
+		{
+			_mediator.ToMenu();
+		}
+
+		public void EnableCanvas(bool enabled)
+		{
+			_pauseCanvas.gameObject.SetActive( enabled);
+			if (enabled)
+			{
+				_firstButton.Select();
+			}
 		}
 	}
 }

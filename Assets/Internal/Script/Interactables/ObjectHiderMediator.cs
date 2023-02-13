@@ -5,9 +5,9 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-namespace UI
+namespace Interactables
 {
-	public class PauseMenuMediator: MediatorBase<PauseMenuView>, IInitializable, IDisposable
+	public class ObjectHiderMediator: MediatorBase<ObjectHiderView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -21,39 +21,29 @@ namespace UI
 		{
 			switch (signal.ToState)
 			{
-				case State.Pause:
-					_view.EnableCanvas(true);
+				case State.Inspector:
+					_view.MeshEnable(true);
 					break;
 				default:
-					_view.EnableCanvas(false);
+					_view.MeshEnable(false);
+
 					break;
 			}
 		}
 		///  PUBLIC API                ///
-		public void ToMenu()
-		{
-			_signalBus.Fire(new LoadSceneSignal { StateToLoad = State.Menu });
-		}
 
-		public void Unpause()
-		{
-			_stateManager.SetState(State.Play);
-		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]
-		private SignalBus _signalBus;
 
-		[Inject]
-		private StateManager _stateManager;
+		private SignalBus _signalBus;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
 		public void Initialize()
 		{
 			_signalBus.GetStream<StateChangeSignal>()
-					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
-			_view.Init(this);
+								   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
 		}
 
 		public void Dispose()

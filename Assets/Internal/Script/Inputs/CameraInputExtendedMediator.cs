@@ -13,11 +13,17 @@ namespace Inputs
 	{
 
 		///  INSPECTOR VARIABLES       ///
-		
+
 		///  PRIVATE VARIABLES         ///
+		private bool _movementEnabled;
 
 		///  PRIVATE METHODS           ///
-		private bool _movementEnabled;
+
+		private void CursorMode(CursorLockMode mode)
+		{
+			Cursor.lockState = mode;
+		}
+
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(StateChangeSignal signal)
 		{
@@ -26,8 +32,11 @@ namespace Inputs
 			{
 				case State.Play:
 					_movementEnabled = true;
+					CursorMode(CursorLockMode.Locked);
 					break;
+				
 				default:
+					CursorMode(CursorLockMode.Confined);
 					_movementEnabled = false;
 					break;
 			}

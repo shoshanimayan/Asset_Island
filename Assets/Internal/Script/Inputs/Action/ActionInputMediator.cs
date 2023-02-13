@@ -46,6 +46,8 @@ namespace Inputs
 			}
 			else if (_stateManager.GetState() == State.Pause)
 			{
+				Debug.Log(true);
+
 				_stateManager.ToPreviousState();
 			}
 			

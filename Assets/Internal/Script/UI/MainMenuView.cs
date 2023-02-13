@@ -12,22 +12,9 @@ namespace UI
 		///  INSPECTOR VARIABLES       ///
 		///  PRIVATE VARIABLES         ///
 		private MainMenuMediator _mediator;
-		private bool _disabledEvent;
-		///  PRIVATE METHODS           ///
 		
 
-		private void Update()
-		{
-			if (!_disabledEvent)
-			{
-				var RootEvent = GameObject.Find("Root_Event");
-				if (RootEvent)
-				{
-					_disabledEvent = true;
-					RootEvent.SetActive(false);
-				}
-			}
-		}
+		
 		///  PUBLIC API                ///
 		public void Init(MainMenuMediator mediator)
 		{

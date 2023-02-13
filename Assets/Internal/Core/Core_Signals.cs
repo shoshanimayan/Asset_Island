@@ -14,4 +14,6 @@ namespace Core
         public State StateToLoad;
     }
     public class ActionInputSignal { }
+
+    public class RespawnSignal { }
 }

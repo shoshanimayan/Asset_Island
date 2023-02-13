@@ -5,17 +5,18 @@ using Inputs;
 using Controllers;
 using Utility;
 using General;
+using UI;
 public class CoreInstaller : MonoInstaller
 {
     
     public override void InstallBindings()
     {
-       
 
 
-       
 
-       
+
+        //Signals
+
 
         //binding
         Container.BindMediatorView<ControllerMediator, ControllerExtended>();
@@ -23,6 +24,9 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<CameraInputExtendedMediator,CameraInputExtendedView>();
         Container.BindMediatorView<ActionInputMediator, ActionInputView>();
         Container.BindMediatorView<SceneManagerMediator,SceneManagerView>();
+        Container.BindMediatorView<PauseMenuMediator, PauseMenuView>();
+        Container.BindMediatorView<LoadingUIMediator, LoadingUIView>();
+
 
 
     }

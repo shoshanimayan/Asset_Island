@@ -8,9 +8,11 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
     {
         SignalBusInstaller.Install(Container);
         //singles
-        Container.Bind<StateManager>().AsSingle().NonLazy();
+        Container.Bind<StateManager>().AsSingle();
         //Signals
         Container.DeclareSignal<StateChangeSignal>();
         Container.DeclareSignal<LoadSceneSignal>();
+        Container.DeclareSignal<RespawnSignal>();
+
     }
 }

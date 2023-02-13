@@ -22,6 +22,7 @@ namespace Inputs
 			_mediator = mediator;
 
 			_ActionInteractInput.action.performed += ctx => _mediator.DispatchActionSignal();
+			_PauseInput.action.performed += ctx => _mediator.DispatchPause();
 		}
 	}
 }

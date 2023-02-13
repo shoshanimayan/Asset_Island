@@ -37,6 +37,8 @@ namespace Core
 
 		public void SetState(State state)
 		{
+			_prevState = _state;
+			_state = state;
 			_signalBus.Fire(new StateChangeSignal() { ToState = state });
 
 		}

@@ -26,6 +26,7 @@ namespace General
 
         private void Load(AssetReference scene)
         {
+            _stateManager.SetState(State.Loading);
 
             Debug.Log("loading level");
             if (!_unloaded)

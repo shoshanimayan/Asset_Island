@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Level
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: bb3faebc0e1b28645b269d0beff5c706
+    m_Address: ImportedJson
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 24a35aa606d5b9e458bd1a05f52057bc, type: 2}
   m_SchemaSet:

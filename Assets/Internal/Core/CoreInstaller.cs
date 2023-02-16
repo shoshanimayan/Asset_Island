@@ -6,6 +6,7 @@ using Controllers;
 using Utility;
 using General;
 using UI;
+using ItemInspector;
 public class CoreInstaller : MonoInstaller
 {
     
@@ -16,6 +17,9 @@ public class CoreInstaller : MonoInstaller
 
 
         //Signals
+        Container.DeclareSignal<ReadSignal>();
+        Container.DeclareSignal<TextDisplaySignal>();
+        Container.DeclareSignal<ObjectDisplaySignal>();
 
 
         //binding
@@ -26,6 +30,11 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<SceneManagerMediator,SceneManagerView>();
         Container.BindMediatorView<PauseMenuMediator, PauseMenuView>();
         Container.BindMediatorView<LoadingUIMediator, LoadingUIView>();
+        Container.BindMediatorView<TextDisplayMediator, TextDisplayView>();
+        Container.BindMediatorView<TextReaderMediator,TextReaderView>();
+        Container.BindMediatorView< ItemInspectorMediator, ItemInspectorView>();
+
+
 
 
 

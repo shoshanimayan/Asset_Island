@@ -16,4 +16,16 @@ namespace Core
     public class ActionInputSignal { }
 
     public class RespawnSignal { }
+    public class ReadSignal {
+        public int ReadIndex;
+    }
+
+    public class TextDisplaySignal {
+        public string Text;
+    }
+
+    public class ObjectDisplaySignal
+    {
+        public string AddressableName;
+    }
 }

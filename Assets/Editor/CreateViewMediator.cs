@@ -106,7 +106,7 @@ public class CreateViewMeditor : EditorWindow
        "\t\t}\n\n" +
        "\t}\n" +
        "}";
-
+        Debug.Log(ViewPath);
         using (StreamWriter view = File.CreateText(ViewPath))
         {
             view.WriteLine(viewTemplate);

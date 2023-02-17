@@ -8,6 +8,9 @@ using System.IO;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
 using UnityEditor.AddressableAssets;
+using System;
+
+[Serializable]
 
 public class ImportedData
 {

@@ -20,6 +20,7 @@ public class CoreInstaller : MonoInstaller
         Container.DeclareSignal<ReadSignal>();
         Container.DeclareSignal<TextDisplaySignal>();
         Container.DeclareSignal<ObjectDisplaySignal>();
+        Container.DeclareSignal<ActionInputSignal>();
 
 
         //binding

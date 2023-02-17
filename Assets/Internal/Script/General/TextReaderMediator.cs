@@ -7,17 +7,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 namespace General
 {
-
 	[Serializable]
-	public class TextObject
+	public class ImportedData
 	{
-		public string Id;
-		public string Value;
-		public string Item;
+		public string range;
+		public string majorDimension;
+		public string[][] values;
 	}
-	
+
+
 	public class TextReaderMediator: MediatorBase<TextReaderView>, IInitializable, IDisposable
 	{
 
@@ -51,13 +53,25 @@ namespace General
 
 		private void ReadJson(string text, int index)
 		{
-			Debug.Log(text);
+			ImportedData data = JsonConvert.DeserializeObject<ImportedData>(text);
+			var textValue = data.values[index][1];
+			_signalBus.Fire(new TextDisplaySignal() { Text=textValue});
+
+			if (2 < data.values[index].Length)
+			{ 
+				var objValue= data.values[index][2];
+				_signalBus.Fire(new ObjectDisplaySignal() { AddressableName=objValue });
+
+			}
 		}
 
 		public void Initialize()
 		{
 			_signalBus.GetStream<ReadSignal>()
 					 .Subscribe(x => OnReadAddressableText(x.ReadIndex)).AddTo(_disposables);
+
+			_signalBus.Fire(new ReadSignal() { ReadIndex = 0 });
+
 		}
 
 		public void Dispose()

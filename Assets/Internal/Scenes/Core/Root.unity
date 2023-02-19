@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 20
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 169.58583, y: 40.228443, z: -531.79016, w: -17.781479}
+  m_margin: {x: -266.261, y: 40.228443, z: -531.79016, w: -17.781479}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1832,7 +1832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743426094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.279, z: 1.741}
+  m_LocalPosition: {x: 0, y: 0.3, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2844,6 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6edf2c48ff124c48815c299382212c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayItemPosition: {fileID: 1743426095}
-  _ActionInput: {fileID: 1120369429361536294, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _displayItemPosition: {fileID: 1743426095}
+  _inputMovement: {fileID: -1680190386980627800, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
+  _rotSpeed: 50

@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Address: ImportedJson
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 1ab7d7a5cd13e994592413b499fd543c
+    m_Address: testitem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 24a35aa606d5b9e458bd1a05f52057bc, type: 2}
   m_SchemaSet:

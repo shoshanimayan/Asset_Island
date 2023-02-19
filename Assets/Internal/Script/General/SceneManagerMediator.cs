@@ -24,6 +24,7 @@ namespace General
         ///  PRIVATE METHODS           ///
         
 
+
         private void Load(AssetReference scene)
         {
             _stateManager.SetState(State.Loading);

@@ -13,6 +13,9 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
         Container.DeclareSignal<StateChangeSignal>();
         Container.DeclareSignal<LoadSceneSignal>();
         Container.DeclareSignal<RespawnSignal>();
-
+        Container.DeclareSignal<ReadSignal>();
+        Container.DeclareSignal<TextDisplaySignal>();
+        Container.DeclareSignal<ObjectDisplaySignal>();
+        Container.DeclareSignal<ActionInputSignal>();
     }
 }

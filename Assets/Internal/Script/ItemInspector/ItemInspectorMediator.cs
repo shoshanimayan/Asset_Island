@@ -10,18 +10,21 @@ namespace ItemInspector
 	public class ItemInspectorMediator: MediatorBase<ItemInspectorView>, IInitializable, IDisposable
 	{
 
-		///  INSPECTOR VARIABLES       ///
-
-		///  PRIVATE VARIABLES         ///
-
-		///  PRIVATE METHODS           ///
+	
 
 		///  LISTNER METHODS           ///
 		private void OnReadAddressableText(string Name)
 		{
 			_view.DisplayItem(Name);
 		}
-		///  PUBLIC API                ///
+
+		private void OnStateChanged(StateChangeSignal signal)
+		{
+			if (signal.ToState != State.Pause)
+			{
+				_view.DisposeItem();
+			}
+		}
 
 		///  IMPLEMENTATION            ///
 
@@ -35,7 +38,8 @@ namespace ItemInspector
 		{
 			_signalBus.GetStream<ObjectDisplaySignal>()
 					 .Subscribe(x => OnReadAddressableText(x.AddressableName)).AddTo(_disposables);
-
+			_signalBus.GetStream<StateChangeSignal>()
+					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
 			_view.InitInspector();
 		}
 

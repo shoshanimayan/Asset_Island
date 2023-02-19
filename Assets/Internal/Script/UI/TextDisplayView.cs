@@ -1,7 +1,6 @@
 using UnityEngine;
 using Core;
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine.InputSystem;
 using System.Threading.Tasks;
@@ -22,7 +21,6 @@ namespace UI
 		private bool _displaying;
 		private bool _writing;
 		private CancellationTokenSource _cToken;
-		private InputType _inputType= InputType.MouseKey;
 		private TextDisplayMediator _mediator;
 		///  PRIVATE METHODS           ///
 		private void ProceedText(InputAction.CallbackContext context)
@@ -78,9 +76,12 @@ namespace UI
 		public async void DisplayText(string text)
 		{
 			var key = "E or click";
-			if (Gamepad.current.added)
+			if (Gamepad.current!=null)
 			{
-				key = "X";
+				if (Gamepad.current.added)
+				{
+					key = "X";
+				}
 			}
 			_helperText.text = string.Format("press {0} to Continue", key);
 

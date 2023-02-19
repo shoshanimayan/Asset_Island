@@ -34,6 +34,10 @@ namespace Inputs
 					_movementEnabled = true;
 					CursorMode(CursorLockMode.Locked);
 					break;
+				case State.Inspector:
+					CursorMode(CursorLockMode.Locked);
+					_movementEnabled = false;
+					break;
 				
 				default:
 					CursorMode(CursorLockMode.Confined);

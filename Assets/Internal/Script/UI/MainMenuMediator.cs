@@ -5,7 +5,6 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Core;
 namespace UI
 {
 	public class MainMenuMediator: MediatorBase<MainMenuView>, IInitializable, IDisposable

@@ -3,10 +3,8 @@ using Core;
 using Zenject;
 using UniRx;
 using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine.AddressableAssets;
-using Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 namespace General
@@ -70,7 +68,6 @@ namespace General
 			_signalBus.GetStream<ReadSignal>()
 					 .Subscribe(x => OnReadAddressableText(x.ReadIndex)).AddTo(_disposables);
 
-			_signalBus.Fire(new ReadSignal() { ReadIndex = 0 });
 
 		}
 

@@ -7,7 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 namespace Interactables
 {
-	public class ObjectHiderMediator: MediatorBase<ObjectHiderView>, IInitializable, IDisposable
+	public class InteractableManagerMediator: MediatorBase<InteractableManagerView>, IInitializable, IDisposable
 	{
 
 		///  INSPECTOR VARIABLES       ///
@@ -17,19 +17,7 @@ namespace Interactables
 		///  PRIVATE METHODS           ///
 
 		///  LISTNER METHODS           ///
-		private void OnStateChanged(StateChangeSignal signal)
-		{
-			switch (signal.ToState)
-			{
-				case State.Inspector:
-					_view.MeshEnable(false);
-					break;
-				default:
-					_view.MeshEnable(true);
-
-					break;
-			}
-		}
+		
 		///  PUBLIC API                ///
 
 		///  IMPLEMENTATION            ///
@@ -42,8 +30,14 @@ namespace Interactables
 
 		public void Initialize()
 		{
-			_signalBus.GetStream<StateChangeSignal>()
-								   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+			var index = 0;
+			foreach (InteractableView interactable in _view.InteractableList)
+			{
+				interactable.SetIndex(index);
+				index++;
+			}
+
+			
 		}
 
 		public void Dispose()

@@ -26,6 +26,7 @@ namespace ItemInspector
 			}
 		}
 
+	
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -40,6 +41,7 @@ namespace ItemInspector
 					 .Subscribe(x => OnReadAddressableText(x.AddressableName)).AddTo(_disposables);
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+		
 			_view.InitInspector();
 		}
 

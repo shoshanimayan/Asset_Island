@@ -17,5 +17,12 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
         Container.DeclareSignal<TextDisplaySignal>();
         Container.DeclareSignal<ObjectDisplaySignal>();
         Container.DeclareSignal<ActionInputSignal>();
+        Container.DeclareSignal<HelperTextSignal>();
+        Container.DeclareSignal<RequestPlayerTransformSignal>();
+        Container.DeclareSignal<DeliverPlayerTransformSignal>();
+        Container.DeclareSignal<CounterIncrementSignal>();
+        Container.DeclareSignal<CounterTextSignal>();
+
+
     }
 }

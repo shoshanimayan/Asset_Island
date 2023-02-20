@@ -24,6 +24,8 @@ namespace Interactables
 			{
 				_view.Interacted = true;
 				_signalBus.Fire(new ReadSignal() { ReadIndex = _view.Index });
+				_signalBus.Fire(new CounterIncrementSignal());
+
 			}
 		}
 
@@ -32,7 +34,15 @@ namespace Interactables
 
 		}
 		///  PUBLIC API                ///
+		public void SendHelpText(string text)
+		{
+			if (_stateManager.GetState() == State.Play)
+			{
+				_signalBus.Fire(new HelperTextSignal() { Text = text });
+			}
+		}
 
+		
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -45,6 +55,7 @@ namespace Interactables
 
 		public void Initialize()
 		{
+			_view.InitView(this);
 			_signalBus.GetStream<ActionInputSignal>()
 					   .Subscribe(x => OnActionInput()).AddTo(_disposables);
 

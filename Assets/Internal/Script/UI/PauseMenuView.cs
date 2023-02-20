@@ -19,6 +19,7 @@ namespace UI
 		public void Init(PauseMenuMediator mediator)
 		{
 			_mediator = mediator;
+			EnableCanvas(false);
 		}
 
 		public void Continue()

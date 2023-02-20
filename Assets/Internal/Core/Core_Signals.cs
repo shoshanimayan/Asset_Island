@@ -24,6 +24,32 @@ namespace Core
         public string Text;
     }
 
+    public class HelperTextSignal
+    {
+        public string Text;
+    }
+
+    public class CounterIncrementSignal
+    {
+        
+    }
+
+   
+
+    public class CounterTextSignal
+    {
+        public string Text;
+    }
+
+    public class RequestPlayerTransformSignal
+    {
+       
+    }
+    public class DeliverPlayerTransformSignal
+    {
+        public Transform Transform;
+    }
+
     public class ObjectDisplaySignal
     {
         public string AddressableName;

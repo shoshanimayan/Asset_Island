@@ -28,6 +28,10 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<SceneManagerMediator,SceneManagerView>();
         Container.BindMediatorView<PauseMenuMediator, PauseMenuView>();
         Container.BindMediatorView<LoadingUIMediator, LoadingUIView>();
+        Container.BindMediatorView<HelperUIMediator, HelperUIView>();
+        Container.BindMediatorView<UiCounterMediator, UiCounterView>();
+
+
         Container.BindMediatorView<TextDisplayMediator, TextDisplayView>();
         Container.BindMediatorView<TextReaderMediator,TextReaderView>();
         Container.BindMediatorView< ItemInspectorMediator, ItemInspectorView>();

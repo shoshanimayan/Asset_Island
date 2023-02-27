@@ -10,6 +10,7 @@ namespace Inputs
 		///  INSPECTOR VARIABLES       ///
 		[SerializeField] private InputActionReference _ActionInteractInput;
 		[SerializeField] private InputActionReference _PauseInput;
+		[SerializeField] private InputActionReference _hintInput;
 
 
 		///  PRIVATE VARIABLES         ///
@@ -22,6 +23,8 @@ namespace Inputs
 			_mediator = mediator;
 
 			_ActionInteractInput.action.performed += ctx => _mediator.DispatchActionSignal();
+			_hintInput.action.performed += ctx => _mediator.DispatchHintSignal();
+
 			_PauseInput.action.performed += ctx => _mediator.DispatchPause();
 		}
 	}

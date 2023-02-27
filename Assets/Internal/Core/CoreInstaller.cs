@@ -25,17 +25,19 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<CharacterInputExtendedMediator, CharacterInputExtendedView>();
         Container.BindMediatorView<CameraInputExtendedMediator,CameraInputExtendedView>();
         Container.BindMediatorView<ActionInputMediator, ActionInputView>();
-        Container.BindMediatorView<SceneManagerMediator,SceneManagerView>();
         Container.BindMediatorView<PauseMenuMediator, PauseMenuView>();
         Container.BindMediatorView<LoadingUIMediator, LoadingUIView>();
         Container.BindMediatorView<HelperUIMediator, HelperUIView>();
         Container.BindMediatorView<UiCounterMediator, UiCounterView>();
+        Container.BindMediatorView<MetalDetectorMediator, MetalDetectorView>();
+        Container.BindMediatorView<NavigationHintMediator, NavigationHintView>();
 
 
         Container.BindMediatorView<TextDisplayMediator, TextDisplayView>();
         Container.BindMediatorView<TextReaderMediator,TextReaderView>();
         Container.BindMediatorView< ItemInspectorMediator, ItemInspectorView>();
 
+        Container.BindMediatorView<SceneManagerMediator, SceneManagerView>();
 
 
 

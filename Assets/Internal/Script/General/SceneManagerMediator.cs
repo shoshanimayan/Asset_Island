@@ -123,6 +123,7 @@ namespace General
                 //just for testing in editor
                 if (SceneManager.GetSceneAt(0).name.Contains("Menu"))
                 {
+
                     _stateManager.SetState(State.Menu);
 
                 }

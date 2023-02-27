@@ -1,7 +1,7 @@
 using Core;
 using UnityEngine;
 using Zenject;
-
+using General;
 public class GlobalInstaller : MonoInstaller<GlobalInstaller>
 {
     public override void InstallBindings()
@@ -9,6 +9,7 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
         SignalBusInstaller.Install(Container);
         //singles
         Container.Bind<StateManager>().AsSingle();
+        Container.Bind<PlayerHandler>().AsSingle().NonLazy(); 
         //Signals
         Container.DeclareSignal<StateChangeSignal>();
         Container.DeclareSignal<LoadSceneSignal>();
@@ -18,11 +19,10 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
         Container.DeclareSignal<ObjectDisplaySignal>();
         Container.DeclareSignal<ActionInputSignal>();
         Container.DeclareSignal<HelperTextSignal>();
-        Container.DeclareSignal<RequestPlayerTransformSignal>();
-        Container.DeclareSignal<DeliverPlayerTransformSignal>();
         Container.DeclareSignal<CounterIncrementSignal>();
         Container.DeclareSignal<CounterTextSignal>();
-
+        Container.DeclareSignal<SetHintTransformSignal>();
+        Container.DeclareSignal<HintSignal>();
 
     }
 }

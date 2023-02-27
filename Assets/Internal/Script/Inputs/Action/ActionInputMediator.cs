@@ -61,6 +61,16 @@ namespace Inputs
 			}
 
 		}
+
+
+		public void DispatchHintSignal()
+		{
+			if (_enabled)
+			{
+				_signalBus.Fire(new HintSignal{ });
+			}
+
+		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]

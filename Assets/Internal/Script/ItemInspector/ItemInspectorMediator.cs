@@ -10,8 +10,7 @@ namespace ItemInspector
 	public class ItemInspectorMediator: MediatorBase<ItemInspectorView>, IInitializable, IDisposable
 	{
 
-	
-
+		
 		///  LISTNER METHODS           ///
 		private void OnReadAddressableText(string Name)
 		{
@@ -25,6 +24,9 @@ namespace ItemInspector
 				_view.DisposeItem();
 			}
 		}
+
+
+		
 
 	
 		///  IMPLEMENTATION            ///

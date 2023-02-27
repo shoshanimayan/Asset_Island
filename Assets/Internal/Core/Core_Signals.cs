@@ -29,26 +29,29 @@ namespace Core
         public string Text;
     }
 
+    public class HintSignal
+    {
+    }
+    public class SetHintTransformSignal
+    {
+        public Transform HintTransform;
+    }
     public class CounterIncrementSignal
     {
         
     }
 
-   
+    public class FinishGameSignal
+    {
+
+    }
 
     public class CounterTextSignal
     {
         public string Text;
     }
 
-    public class RequestPlayerTransformSignal
-    {
-       
-    }
-    public class DeliverPlayerTransformSignal
-    {
-        public Transform Transform;
-    }
+  
 
     public class ObjectDisplaySignal
     {

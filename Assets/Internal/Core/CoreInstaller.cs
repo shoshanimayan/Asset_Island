@@ -31,6 +31,7 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<UiCounterMediator, UiCounterView>();
         Container.BindMediatorView<MetalDetectorMediator, MetalDetectorView>();
         Container.BindMediatorView<NavigationHintMediator, NavigationHintView>();
+        Container.BindMediatorView<RespawnMediator, RespawnView>();
 
 
         Container.BindMediatorView<TextDisplayMediator, TextDisplayView>();

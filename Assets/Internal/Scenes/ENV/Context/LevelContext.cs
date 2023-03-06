@@ -7,5 +7,7 @@ public class LevelContext : MonoInstaller
     public override void InstallBindings()
     {
         Container.BindMediatorView<InteractableManagerMediator, InteractableManagerView>();
+        Container.BindMediatorView<RespawnerMediator, RespawnerView>();
+
     }
 }

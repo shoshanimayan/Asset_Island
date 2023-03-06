@@ -22,8 +22,10 @@ namespace UI
 		private bool _writing;
 		private CancellationTokenSource _cToken;
 		private TextDisplayMediator _mediator;
+		private string[] _currentMessages;
+		private int _index = 0;
 		///  PRIVATE METHODS           ///
-		private void ProceedText(InputAction.CallbackContext context)
+		private async void ProceedText(InputAction.CallbackContext context)
 		{
 
 
@@ -36,12 +38,28 @@ namespace UI
 			}
 			else if (_displaying)
 			{
-				_cToken.Cancel();
-				_cToken.Dispose();
-				_cToken = new CancellationTokenSource();
-				_displaying = false;
-				_pauseCanvas.enabled = false;
-				_mediator.FinishedDisplay();
+				_index++;
+				if (_index >= _currentMessages.Length)
+				{
+					_cToken.Cancel();
+					_cToken.Dispose();
+					_cToken = new CancellationTokenSource();
+					_displaying = false;
+					_pauseCanvas.enabled = false;
+					_mediator.FinishedDisplay();
+				}
+				else 
+				{
+					_text.text = "";
+					_displaying = true;
+					_pauseCanvas.enabled = true;
+					if (_cToken == null)
+					{
+						_cToken = new CancellationTokenSource();
+
+					}
+					await TypeText(_currentMessages[_index], _cToken.Token);
+				}
 
 			}
 		}
@@ -73,8 +91,9 @@ namespace UI
 			_writing = false;
 		}
 		///  PUBLIC API                ///
-		public async void DisplayText(string text)
+		public async void DisplayText(string[] text)
 		{
+			_currentMessages = text;
 			var key = "E or click";
 			if (Gamepad.current!=null)
 			{
@@ -93,7 +112,8 @@ namespace UI
 				_cToken = new CancellationTokenSource();
 
 			}
-			await TypeText(text,_cToken.Token);
+			_index = 0;
+			await TypeText(_currentMessages[_index],_cToken.Token);
 		}
 
 		public void InitDisplay(TextDisplayMediator mediator)

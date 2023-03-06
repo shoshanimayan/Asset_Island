@@ -23,11 +23,14 @@ namespace Interactables
 			Transform result = null;
 			foreach (var i in _view.InteractableList)
 			{
-				var tempDistance = Vector3.Distance(_playerHandler.GetPlayerWorldPosition(), i.transform.position);
-				if (tempDistance < distance)
+				if (i.Interacted)
 				{
-					result = i.transform;
-					distance = tempDistance;
+					var tempDistance = Vector3.Distance(_playerHandler.GetPlayerWorldPosition(), i.transform.position);
+					if (tempDistance < distance)
+					{
+						result = i.transform;
+						distance = tempDistance;
+					}
 				}
 			}
 			
@@ -42,6 +45,12 @@ namespace Interactables
 	
 			_counterCurrent++;
 			_signalBus.Fire(new CounterTextSignal() { Text = _counterCurrent.ToString() + "/" + _counterMax.ToString() });
+
+			if (_counterCurrent >= _counterMax)
+			{
+				_signalBus.Fire(new EndingGameSignal());
+
+			}
 		}
 
 
@@ -78,6 +87,7 @@ namespace Interactables
 			_counterCurrent = 0;
 			_counterMax = _view.InteractableList.Length;
 			_signalBus.Fire(new CounterTextSignal() { Text = _counterCurrent.ToString() + "/" + _counterMax.ToString() });
+			_signalBus.Fire(new StartGameSignal());
 
 
 		}

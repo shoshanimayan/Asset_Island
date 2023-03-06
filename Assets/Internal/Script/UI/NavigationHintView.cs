@@ -13,10 +13,12 @@ namespace UI
 		[SerializeField] private Transform _TrackerObj;
 		[SerializeField] private Image _tracker;
 		[SerializeField] [Range(0, 1)] private float _fieldOfView;
+		[SerializeField] private float _maxHintTimeDuration = 5f;
 		///  PRIVATE VARIABLES         ///
 		private Transform _target = null;
 		private bool _visible = false;
 		private Transform _camera;
+		private float _currentTime;
 
 		[SerializeField]
 		public  bool _tracking
@@ -51,7 +53,24 @@ namespace UI
 			if (_tracking )
 			{
 				Track();
+				_currentTime -= Time.deltaTime;
+				if (_currentTime <= 0)
+				{
+					StopTracking();
+
+				}
+
 			}
+
+
+		}
+
+		private void StopTracking()
+		{
+			_tracking = false;
+			_currentTime = 0;
+			_target = null;
+			_tracker.enabled = false;
 
 		}
 
@@ -75,6 +94,7 @@ namespace UI
 		///  PUBLIC API                ///
 		public void SetTarget(Transform t)
 		{
+			print(t.name);
 			_target = t;
 			if (_target == null)
 			{
@@ -82,6 +102,7 @@ namespace UI
 			}
 			else
 			{
+				_currentTime = _maxHintTimeDuration;
 				_tracking = true;
 			}
 		}

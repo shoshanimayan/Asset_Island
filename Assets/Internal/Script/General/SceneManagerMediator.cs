@@ -44,6 +44,7 @@ namespace General
             {
                 _handle = obj;
                 _unloaded = false;
+                _signalBus.Fire(new RespawnSignal());
                 switch (_stateLoading)
                 {
                     case State.Play:
@@ -94,6 +95,12 @@ namespace General
             }
         }
 
+        private void OnEndedGame()
+        {
+            _stateManager.SetState(State.Loading);
+            _stateLoading = State.Menu;
+            Load(_view.GetMenuAsset());
+        }
         ///  PUBLIC API                ///
 
 
@@ -111,6 +118,8 @@ namespace General
 		{
             _signalBus.GetStream<LoadSceneSignal>()
                        .Subscribe(x => OnLoadSceneChanged(x)).AddTo(_disposables);
+            _signalBus.GetStream<EndedGameSignal>()
+                     .Subscribe(x => OnEndedGame()).AddTo(_disposables);
             _view.Init(this);
             if (SceneManager.sceneCount == 1)
             {

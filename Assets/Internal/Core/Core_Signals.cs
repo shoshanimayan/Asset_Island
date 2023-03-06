@@ -20,8 +20,28 @@ namespace Core
         public int ReadIndex;
     }
 
-    public class TextDisplaySignal {
-        public string Text;
+    public class TextDisplaySignal
+    {
+        public string[] Text;
+        public string TextType = null;
+
+    }
+
+   
+
+    public class StartGameSignal
+    {
+        
+    }
+
+    public class EndedGameSignal
+    {
+
+    }
+
+    public class EndingGameSignal
+    {
+
     }
 
     public class HelperTextSignal
@@ -41,10 +61,7 @@ namespace Core
         
     }
 
-    public class FinishGameSignal
-    {
-
-    }
+    
 
     public class CounterTextSignal
     {

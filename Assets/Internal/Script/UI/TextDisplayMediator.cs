@@ -13,21 +13,36 @@ namespace UI
 		///  INSPECTOR VARIABLES       ///
 
 		///  PRIVATE VARIABLES         ///
-
+		private string _currentType=null;
 		///  PRIVATE METHODS           ///
-
+		private void FireEndedGameSignal()
+		{
+			_signalBus.Fire(new EndedGameSignal());
+		}
 		///  LISTNER METHODS           ///
-		private void OnGetTextToDisplay(string text)
+		private void OnGetTextToDisplay(string[] text, string textType)
 		{
 			//if in play mode
 			_stateManager.SetState(State.Inspector);
 			_view.DisplayText(text);
+			_currentType = textType;
 		}
 		///  PUBLIC API                ///
 		public void FinishedDisplay()
 		{
+			if (_currentType != "Start" && _currentType != "End")
+			{
+				_signalBus.Fire(new CounterIncrementSignal());
+			}
+			if (_currentType == "End")
+			{
+				FireEndedGameSignal();
+			}
+			_currentType = null;
 			_stateManager.ToPreviousState();
 		}
+
+		
 		///  IMPLEMENTATION            ///
 
 		[Inject]
@@ -40,7 +55,7 @@ namespace UI
 		public void Initialize()
 		{
 			_signalBus.GetStream<TextDisplaySignal>()
-				 .Subscribe(x => OnGetTextToDisplay(x.Text)).AddTo(_disposables);
+				 .Subscribe(x => OnGetTextToDisplay(x.Text,x.TextType)).AddTo(_disposables);
 			_view.InitDisplay(this);
 		}
 
@@ -50,6 +65,8 @@ namespace UI
 			_disposables.Dispose();
 
 		}
+
+		
 
 	}
 }

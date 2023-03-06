@@ -23,6 +23,10 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
         Container.DeclareSignal<CounterTextSignal>();
         Container.DeclareSignal<SetHintTransformSignal>();
         Container.DeclareSignal<HintSignal>();
+        Container.DeclareSignal<EndingGameSignal>();
+        Container.DeclareSignal<StartGameSignal>();
+        Container.DeclareSignal<EndedGameSignal>();
+
 
     }
 }

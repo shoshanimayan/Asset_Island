@@ -33,7 +33,7 @@ namespace Interactables
 
 		public void Initialize()
 		{
-
+			_view.InitView(this);
 		}
 
 		public void Dispose()

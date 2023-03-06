@@ -7,6 +7,9 @@ using System;
 using UnityEngine.AddressableAssets;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.IO;
+using System.Collections.Generic;
+
 namespace General
 {
 	[Serializable]
@@ -34,7 +37,30 @@ namespace General
 			_view.AddresableTextAsset.LoadAssetAsync<TextAsset>().Completed += handle =>
 			{
 				result = handle.Result.text;
-				ReadJson(result, index);
+				Read(result, index+2);
+				Addressables.Release(handle);
+			};
+		}
+
+		private void OnStartingGame() 
+		{
+			string result = "";
+			_view.AddresableTextAsset.LoadAssetAsync<TextAsset>().Completed += handle =>
+			{
+				result = handle.Result.text;
+				Read(result,0);
+				Addressables.Release(handle);
+			};
+		}
+
+
+		private void OnEndingGame()
+		{
+			string result = "";
+			_view.AddresableTextAsset.LoadAssetAsync<TextAsset>().Completed += handle =>
+			{
+				result = handle.Result.text;
+				Read(result,1);
 				Addressables.Release(handle);
 			};
 		}
@@ -49,18 +75,33 @@ namespace General
 
 		
 
-		private void ReadJson(string text, int index)
+		private void Read(string text, int index)
 		{
-			ImportedData data = JsonConvert.DeserializeObject<ImportedData>(text);
-			var textValue = data.values[index][1];
-			_signalBus.Fire(new TextDisplaySignal() { Text=textValue});
+			
+				ImportedData data = JsonConvert.DeserializeObject<ImportedData>(text);
+				var textValue = data.values[index][1];
+				StringReader reader = new StringReader(textValue);
+				List<string> tempList = new List<string>();
+				var line = string.Empty;
+				do
+				{
+					line = reader.ReadLine();
+					if (line != null && line != "")
+					{
+						tempList.Add(line);
+					}
 
-			if (2 < data.values[index].Length)
-			{ 
-				var objValue= data.values[index][2];
-				_signalBus.Fire(new ObjectDisplaySignal() { AddressableName=objValue });
+				} while (line != null);
+				_signalBus.Fire(new TextDisplaySignal() { Text = tempList.ToArray() , TextType= data.values[index][3]}) ;
 
-			}
+				if (data.values[index][2]!="")
+				{
+					var objValue = data.values[index][2];
+					_signalBus.Fire(new ObjectDisplaySignal() { AddressableName = objValue });
+
+				}
+			
+			
 		}
 
 		public void Initialize()
@@ -68,7 +109,10 @@ namespace General
 			_signalBus.GetStream<ReadSignal>()
 					 .Subscribe(x => OnReadAddressableText(x.ReadIndex)).AddTo(_disposables);
 
-
+			_signalBus.GetStream<StartGameSignal>()
+					 .Subscribe(x => OnStartingGame()).AddTo(_disposables);
+			_signalBus.GetStream<EndingGameSignal>()
+					 .Subscribe(x => OnEndingGame()).AddTo(_disposables);
 		}
 
 		public void Dispose()

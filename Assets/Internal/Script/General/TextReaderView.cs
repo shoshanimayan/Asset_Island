@@ -10,6 +10,7 @@ namespace General
 
 		///  INSPECTOR VARIABLES       ///
 		public AssetReference AddresableTextAsset;
+	
 
 		///  PRIVATE VARIABLES         ///
 

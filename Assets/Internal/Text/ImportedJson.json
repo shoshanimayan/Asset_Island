@@ -1,20 +1,30 @@
 {
-  "range": "Sheet1!A1:Z999",
+  "range": "Sheet1!A1:Z1001",
   "majorDimension": "ROWS",
   "values": [
     [
+      "Start",
+      "Welcome to Asset Island! Many aspiring game developers come here looking for lost and hidden game assets, to either fill their games or inspire new creations.\n\nSearch the island for lost assets with your metal detector, you should hear it beep and rumble as you approach and asset, and you can press the hint button to be guided in the direction of the nearest asset.\n\n You can leave once you’ve found them all or by quitting through the pause menu.",
+      "",
+      "Start"
+    ],
+    [
+      "End",
+      "You’ve found all the assets! Thanks for playing!",
+      "",
+      "End"
+    ],
+    [
       "0",
       "test text",
-      "testitem"
+      "testitem",
+      "Interactactable"
     ],
     [
       "1",
       "test2",
-      "item2"
-    ],
-    [
-      "2",
-      "test3"
+      "testitem",
+      "Interactactable"
     ]
   ]
 }

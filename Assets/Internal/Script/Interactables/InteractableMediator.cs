@@ -24,7 +24,6 @@ namespace Interactables
 			{
 				_view.Interacted = true;
 				_signalBus.Fire(new ReadSignal() { ReadIndex = _view.Index });
-				_signalBus.Fire(new CounterIncrementSignal());
 
 			}
 		}

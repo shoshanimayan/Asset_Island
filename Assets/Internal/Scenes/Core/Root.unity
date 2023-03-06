@@ -2980,6 +2980,7 @@ MonoBehaviour:
   _TrackerObj: {fileID: 1914503431}
   _tracker: {fileID: 1914503432}
   _fieldOfView: 0.95
+  _maxHintTimeDuration: 3
 --- !u!224 &1914503431 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6907716085109575691, guid: f952c7c115cb4b64aa0d16ded0bef896,
@@ -3714,6 +3715,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AddresableTextAsset:
     m_AssetGUID: bb3faebc0e1b28645b269d0beff5c706
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  StartAddresableTextAsset:
+    m_AssetGUID: a348f6e06194c46479b3a3055158af92
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  EndAddresableTextAsset:
+    m_AssetGUID: 86fa1a61bc08ae24d9b87506a6a3c79a
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0

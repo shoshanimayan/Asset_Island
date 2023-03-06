@@ -9,7 +9,7 @@ namespace Core
         public State ToState;
     }
 
-    public class LoadSceneSignal 
+    public class LoadSceneSignal
     {
         public State StateToLoad;
     }
@@ -18,6 +18,11 @@ namespace Core
     public class RespawnSignal { }
     public class ReadSignal {
         public int ReadIndex;
+    }
+
+    public class AudioEffectSignal
+    {
+        public string AudioEffectName;
     }
 
     public class TextDisplaySignal

@@ -11,27 +11,41 @@ namespace Interactables
 
 		///  INSPECTOR VARIABLES       ///
 		public int Index;
+		[SerializeField] private float _radius=2;
+		[SerializeField] private float _minDistance=0;
+		[SerializeField] private float _minScale;
+		[SerializeField] private float _maxScale;
+
 		///  PRIVATE VARIABLES         ///
 		private bool _triggered;
 		private InteractableMediator _mediator;
+		private AudioSource _audioSource;
+		private SphereCollider _collider;
+		private Transform _player;
+
 		///  PRIVATE METHODS           ///
 		private void OnTriggerEnter(Collider other)
 		{
 			_triggered = true;
-			if (!Interacted)
+			if (other.gameObject.tag == "Player" &&!Interacted)
 			{
-				SendMessage();
+				_player = other.transform;
+				PlayAudio();
 			}
+		
 		}
 
 
 
 		private void OnTriggerExit(Collider other)
 		{
+			_player = null;
 			_triggered = false;
 			if (!Interacted)
 			{
 				_mediator.SendHelpText("");
+				StopAudio();
+				SetHaptics(0);
 			}
 		}
 
@@ -39,8 +53,54 @@ namespace Interactables
 		{
 			if (!Interacted)
 			{
-				SendMessage();
+				if (_mediator.InPlayMode())
+				{
+					
+					if (!_audioSource.isPlaying)
+					{
+						_audioSource.UnPause();
+					}
+					var distance = GetDistanceToPlayer();
+					var scale = Mathf.Lerp(_minScale, _maxScale, Mathf.InverseLerp(_minDistance, _radius, distance));
+					SetHaptics(scale);
+					_audioSource.pitch = scale;
+					if (distance <= _radius / 4)
+					{
+						SendMessage();
+					}
+					
+				}
+				else
+				{
+					_audioSource.Pause();
+					_mediator.SendHelpText("");
+					SetHaptics(0);
+				}
 			}
+
+		}
+
+		private void SetHaptics(float rumble)
+		{
+			if (Gamepad.current != null)
+			{
+				Gamepad.current.SetMotorSpeeds((rumble==0?0:(rumble / 4)), rumble);
+			}
+		}
+
+		
+
+		private float GetDistanceToPlayer()
+		{
+			float distance = 0;
+			if (_player)
+			{
+				distance = Vector3.Distance(_player.position, transform.position);
+			}
+
+			return distance;
+
+		
 		}
 
 		private void SendMessage()
@@ -70,8 +130,28 @@ namespace Interactables
 		public void InitView(InteractableMediator mediator)
 		{
 			_mediator = mediator;
+			_audioSource = GetComponent<AudioSource>();
+			_collider = GetComponent<SphereCollider>();
+			_audioSource.minDistance = _radius;
+			_collider.radius = _radius;
+		}
+
+		public void PlayAudio()
+		{
+			_audioSource.Play();	
+		}
+
+		public void StopAudio()
+		{
+			_audioSource.Stop();
+		}
+
+		public void SetAudioPitch(float pitch)
+		{
+			_audioSource.pitch = pitch;
 		}
 
 		
+
 	}
 }

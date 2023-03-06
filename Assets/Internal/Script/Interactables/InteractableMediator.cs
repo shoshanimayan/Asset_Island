@@ -23,6 +23,7 @@ namespace Interactables
 			if (_view.IsTriggered() && _stateManager.GetState()==State.Play &&!_view.Interacted)
 			{
 				_view.Interacted = true;
+				_view.StopAudio();
 				_signalBus.Fire(new ReadSignal() { ReadIndex = _view.Index });
 
 			}
@@ -68,6 +69,14 @@ namespace Interactables
 			_disposables.Dispose();
 
 		}
+
+		public bool InPlayMode()
+		{
+
+			return _stateManager.GetState() == State.Play;
+		}
+
+		
 
 	}
 }

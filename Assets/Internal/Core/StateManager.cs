@@ -7,7 +7,7 @@ using UniRx;
 
 namespace Core
 {
-	public enum State {Loading,Menu,Pause,Play, Inspector, Dialogue }
+	public enum State {Loading,Menu,Pause,Play, Inspector}
 	public class StateManager : IstateManager
 	{
 

@@ -14,7 +14,7 @@ namespace Audio
 		///  PRIVATE VARIABLES         ///
 
 		///  PRIVATE METHODS           ///
-
+		private float _volume;
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(StateChangeSignal signal)
 		{
@@ -22,18 +22,23 @@ namespace Audio
 			{
 				case State.Play:
 					_view.SetAudio("Play");
+					_view.setVolume(_volume );
+
 					break;
 				case State.Pause:
-					_view.PauseAudio();
+					_view.setVolume(_volume / 2);
+
 					break;
 				case State.Menu:
 					_view.SetAudio("Menu");
+					_view.setVolume(_volume);
+
 					break;
 				case State.Loading:
-					_view.PauseAudio();
+					_view.setVolume(_volume / 2);
 					break;
 				case State.Inspector:
-					_view.PauseAudio();
+					_view.setVolume(_volume / 2);
 					break;
 				
 			}
@@ -52,6 +57,7 @@ namespace Audio
 		{
 			_signalBus.GetStream<StateChangeSignal>()
 				   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+			_volume = _view.GetVolume();
 		}
 
 		public void Dispose()

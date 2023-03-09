@@ -10,7 +10,7 @@ namespace Audio
 		///  INSPECTOR VARIABLES       ///
 
 		///  INSPECTOR VARIABLES       ///
-		private AudioClip[] _clips;
+		[SerializeField] private AudioClip[] _clips;
 
 		///  PRIVATE VARIABLES         ///
 		private AudioSource _as;

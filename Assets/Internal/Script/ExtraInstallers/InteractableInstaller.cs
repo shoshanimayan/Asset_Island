@@ -8,5 +8,6 @@ public class InteractableInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.BindMediatorView<InteractableMediator, InteractableView>();
+
     }
 }

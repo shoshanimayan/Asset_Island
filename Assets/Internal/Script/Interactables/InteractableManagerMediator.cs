@@ -6,6 +6,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using General;
+using System.Threading.Tasks;
+
 namespace Interactables
 {
 	public class InteractableManagerMediator: MediatorBase<InteractableManagerView>, IInitializable, IDisposable
@@ -17,6 +19,63 @@ namespace Interactables
 		private int _counterMax = 0;
 		private int _counterCurrent = 0;
 		///  PRIVATE METHODS           ///
+		///  
+		private  async Task SetIteractablePositions()
+		{
+			List<Vector3> tempPos = new List<Vector3>();
+			foreach (var c in _view.InteractableList)
+			{
+				
+				bool searching = true;
+				while (searching)
+				{
+					await Task.Yield();
+					Vector3 CirclePoint = RandomPointOnADisc(_view.PositionSetRadius);
+					Ray ray = new Ray(CirclePoint, -_view.transform.up);
+					Debug.Log(CirclePoint);
+					if (Physics.Raycast(ray, out RaycastHit hit))
+					{
+						Vector3 refz = hit.normal;
+						if (hit.collider.tag == "ground")
+						{
+							Debug.Log(hit.point);
+							if (PositionFitsDistanceRestrictions(tempPos, hit.point, _view.RestrictionDistance))
+							{
+								c.transform.position = hit.point;
+								searching = false;
+							}
+						}
+					}
+				}
+				
+			}
+		}
+
+		private Vector3 RandomPointOnADisc(float radius)
+		{
+			Vector3 temp= UnityEngine.Random.insideUnitCircle*radius;
+			return (  new Vector3(_view.transform.position.x+ temp.y, _view.transform.position.y, _view.transform.position.z+temp.x));
+		}
+
+		
+
+
+
+		private bool PositionFitsDistanceRestrictions(List<Vector3> positions, Vector3 newPos, float distanceRestriction)
+		{
+			bool fits = true;
+			foreach (Vector3 pos in positions)
+			{
+				if (Vector3.Distance(pos, newPos) < distanceRestriction)
+				{
+					fits = false;
+					break;
+				}
+			}
+			return fits;
+		
+		}
+
 		private Transform GetNearestInteractable()
 		{
 			float distance=float.MaxValue;
@@ -72,7 +131,7 @@ namespace Interactables
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
-		public void Initialize()
+		public async  void Initialize()
 		{
 			var index = 0;
 			foreach (InteractableView interactable in _view.InteractableList)
@@ -89,6 +148,7 @@ namespace Interactables
 			_signalBus.Fire(new CounterTextSignal() { Text = _counterCurrent.ToString() + "/" + _counterMax.ToString() });
 			_signalBus.Fire(new StartGameSignal());
 
+			await SetIteractablePositions();
 
 		}
 

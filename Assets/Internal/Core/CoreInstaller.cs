@@ -7,6 +7,7 @@ using Utility;
 using General;
 using UI;
 using ItemInspector;
+using Audio;
 public class CoreInstaller : MonoInstaller
 {
     
@@ -32,6 +33,8 @@ public class CoreInstaller : MonoInstaller
         Container.BindMediatorView<MetalDetectorMediator, MetalDetectorView>();
         Container.BindMediatorView<NavigationHintMediator, NavigationHintView>();
         Container.BindMediatorView<RespawnMediator, RespawnView>();
+        Container.BindMediatorView<GameAudioEffectMediator, GameAudioEffectView>();
+        Container.BindMediatorView<GameMusicMediator, GameMusicView>();
 
 
         Container.BindMediatorView<TextDisplayMediator, TextDisplayView>();

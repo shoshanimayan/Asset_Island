@@ -1617,6 +1617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59e727fd6278be48a8c9ad0cf2ff866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 8300000, guid: 1c1c5e2398c616d469cbe6a1089c90f4, type: 3}
 --- !u!1 &1483734853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,9 +1844,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1938,6 +1940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea798589cafd5cb489459d871f78ba2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 8300000, guid: 285d3cabfeee55a48ab50756aace697e, type: 3}
+  - {fileID: 8300000, guid: 8427f80180650554280f0cb0ea5ed471, type: 3}
 --- !u!1001 &1601859195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3906,7 +3911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   airControlRate: 2
-  jumpSpeed: 5
+  jumpSpeed: 1
   jumpDuration: 0.2
   airFriction: 0.5
   groundFriction: 100

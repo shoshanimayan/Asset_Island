@@ -8,7 +8,7 @@ namespace Audio
 	{
 
 		///  INSPECTOR VARIABLES       ///
-		private AudioClip[] _clips;
+		[SerializeField] private AudioClip[] _clips;
 
 		///  PRIVATE VARIABLES         ///
 		private AudioSource _as;
@@ -40,8 +40,9 @@ namespace Audio
 				if (clip == _as.clip)
 				{
 					UnpauseAudio();
+					return;
 				}
-
+				
 				_as.clip = clip;
 				_as.Play();
 			}
@@ -57,6 +58,15 @@ namespace Audio
 			_as.UnPause();
 		}
 
+		public void setVolume(float volume)
+		{
+			_as.volume = volume;
+		}
+
+		public float GetVolume()
+		{
+			return _as.volume;
+		}
 		
 	}
 }

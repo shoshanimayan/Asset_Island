@@ -13,8 +13,10 @@ namespace Interactables
 		public int Index;
 		[SerializeField] private float _radius=2;
 		[SerializeField] private float _minDistance=0;
-		[SerializeField] private float _minScale;
-		[SerializeField] private float _maxScale;
+		[SerializeField] private float _minSoundScale = 2;
+		[SerializeField] private float _maxSoundScale = 1;
+		[SerializeField] private float _minRumbleScale = 0;
+		[SerializeField] private float _maxRumbleScale = 1;
 
 		///  PRIVATE VARIABLES         ///
 		private bool _triggered;
@@ -61,9 +63,11 @@ namespace Interactables
 						_audioSource.UnPause();
 					}
 					var distance = GetDistanceToPlayer();
-					var scale = Mathf.Lerp(_minScale, _maxScale, Mathf.InverseLerp(_minDistance, _radius, distance));
-					SetHaptics(scale);
-					_audioSource.pitch = scale;
+					var scaleSound = Mathf.Lerp(_maxSoundScale, _minSoundScale, Mathf.InverseLerp(_minDistance, _radius, distance));
+					var scaleRumble = Mathf.Lerp(_maxRumbleScale, _minRumbleScale, Mathf.InverseLerp(_minDistance, _radius, distance));
+
+					SetHaptics(scaleRumble);
+					_audioSource.pitch = scaleSound;
 					if (distance <= _radius / 4)
 					{
 						SendMessage();

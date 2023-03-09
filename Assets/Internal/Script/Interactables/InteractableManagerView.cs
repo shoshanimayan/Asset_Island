@@ -2,6 +2,8 @@ using UnityEngine;
 using Core;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+
 namespace Interactables
 {
 	public class InteractableManagerView: MonoBehaviour,IView
@@ -9,12 +11,19 @@ namespace Interactables
 
 		///  INSPECTOR VARIABLES       ///
 		public InteractableView[] InteractableList;
-		
-	///  PRIVATE VARIABLES         ///
+		public float PositionSetRadius;
+		public float RestrictionDistance;
 
-	///  PRIVATE METHODS           ///
+		///  PRIVATE VARIABLES         ///
 
-	///  PUBLIC API                ///
+		///  PRIVATE METHODS           ///
+
+		private void OnDrawGizmosSelected()
+		{
+			Handles.color = Color.red;
+			Handles.DrawWireDisc(transform.position, new Vector3(0, 1, 0), PositionSetRadius);
+		}
+		///  PUBLIC API                ///
 
 	}
 }

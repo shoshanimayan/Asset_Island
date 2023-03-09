@@ -26,6 +26,12 @@ namespace Interactables
 		private Transform _player;
 
 		///  PRIVATE METHODS           ///
+		///  
+		private void OnDrawGizmos()
+		{
+			Gizmos.DrawWireSphere(transform.position, _radius);	
+		}
+
 		private void OnTriggerEnter(Collider other)
 		{
 			_triggered = true;

@@ -19,7 +19,6 @@ namespace UI
 		///  LISTNER METHODS           ///
 		private void OnStateChanged(StateChangeSignal signal)
 		{
-			Debug.Log(signal.ToState);
 			switch (signal.ToState)
 			{
 				case State.Loading:

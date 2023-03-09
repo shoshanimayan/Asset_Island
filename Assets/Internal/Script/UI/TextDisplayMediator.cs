@@ -27,6 +27,11 @@ namespace UI
 			_view.DisplayText(text);
 			_currentType = textType;
 		}
+
+		private void OnActionInput()
+		{
+			_view.ProceedText();
+		}
 		///  PUBLIC API                ///
 		public void FinishedDisplay()
 		{
@@ -57,6 +62,10 @@ namespace UI
 			_signalBus.GetStream<TextDisplaySignal>()
 				 .Subscribe(x => OnGetTextToDisplay(x.Text,x.TextType)).AddTo(_disposables);
 			_view.InitDisplay(this);
+			_signalBus.GetStream<ActionInputSignal>()
+				 .Subscribe(x => OnActionInput()).AddTo(_disposables);
+			_view.InitDisplay(this);
+
 		}
 
 		public void Dispose()

@@ -23,6 +23,7 @@ namespace Interactables
 		private  async Task SetIteractablePositions()
 		{
 			List<Vector3> tempPos = new List<Vector3>();
+			tempPos.Add(_playerHandler.GetPlayerWorldPosition());
 			foreach (var c in _view.InteractableList)
 			{
 				
@@ -32,13 +33,11 @@ namespace Interactables
 					await Task.Yield();
 					Vector3 CirclePoint = RandomPointOnADisc(_view.PositionSetRadius);
 					Ray ray = new Ray(CirclePoint, -_view.transform.up);
-					Debug.Log(CirclePoint);
 					if (Physics.Raycast(ray, out RaycastHit hit))
 					{
 						Vector3 refz = hit.normal;
 						if (hit.collider.tag == "ground")
 						{
-							Debug.Log(hit.point);
 							if (PositionFitsDistanceRestrictions(tempPos, hit.point, _view.RestrictionDistance))
 							{
 								c.transform.position = hit.point;
@@ -82,7 +81,8 @@ namespace Interactables
 			Transform result = null;
 			foreach (var i in _view.InteractableList)
 			{
-				if (i.Interacted)
+
+				if (!i.Interacted)
 				{
 					var tempDistance = Vector3.Distance(_playerHandler.GetPlayerWorldPosition(), i.transform.position);
 					if (tempDistance < distance)
@@ -92,7 +92,6 @@ namespace Interactables
 					}
 				}
 			}
-			
 
 			return result;
 		

@@ -26,6 +26,9 @@ namespace Inputs
 				case State.Play:
 					_enabled = true;
 					break;
+				case State.Inspector:
+					_enabled = true;
+					break;
 				default:
 					_enabled = false;
 					break;

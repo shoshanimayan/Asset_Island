@@ -34,6 +34,7 @@ namespace UI
 		{
 			if (_canDisplay)
 			{
+				Debug.Log(signal.HintTransform);
 				_view.SetTarget(signal.HintTransform);
 			}
 		}

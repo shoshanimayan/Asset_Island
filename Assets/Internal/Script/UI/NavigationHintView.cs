@@ -94,7 +94,7 @@ namespace UI
 		///  PUBLIC API                ///
 		public void SetTarget(Transform t)
 		{
-			print(t.name);
+			print(t);
 			_target = t;
 			if (_target == null)
 			{

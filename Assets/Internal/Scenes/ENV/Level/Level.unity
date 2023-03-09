@@ -429,7 +429,7 @@ MonoBehaviour:
   - {fileID: 1101498909}
   - {fileID: 694007746}
   PositionSetRadius: 20
-  RestrictionDistance: 4
+  RestrictionDistance: 4.5
 --- !u!4 &376889138
 Transform:
   m_ObjectHideFlags: 0
@@ -612,7 +612,7 @@ PrefabInstance:
     - target: {fileID: 5006048553774167917, guid: 7be2d0bf2477d02428fe3745250fdf5f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.27
+      value: -4.12
       objectReference: {fileID: 0}
     - target: {fileID: 5006048553774167917, guid: 7be2d0bf2477d02428fe3745250fdf5f,
         type: 3}

@@ -17,13 +17,14 @@ namespace Interactables
 		[SerializeField] private float _maxSoundScale = 1;
 		[SerializeField] private float _minRumbleScale = 0;
 		[SerializeField] private float _maxRumbleScale = 1;
-
+		[SerializeField] private float _maxHintTimeDuration = 5f;
 		///  PRIVATE VARIABLES         ///
 		private bool _triggered;
 		private InteractableMediator _mediator;
 		private AudioSource _audioSource;
 		private SphereCollider _collider;
 		private Transform _player;
+		private ParticleSystem _particle;
 
 		///  PRIVATE METHODS           ///
 		///  
@@ -42,8 +43,6 @@ namespace Interactables
 			}
 		
 		}
-
-
 
 		private void OnTriggerExit(Collider other)
 		{
@@ -144,6 +143,7 @@ namespace Interactables
 			_collider = GetComponent<SphereCollider>();
 			_audioSource.minDistance = _radius;
 			_collider.radius = _radius;
+			_particle = GetComponent<ParticleSystem>();
 		}
 
 		public void PlayAudio()
@@ -161,7 +161,15 @@ namespace Interactables
 			_audioSource.pitch = pitch;
 		}
 
-		
+
+		public void PlayParticle()
+		{
+
+			if (!_particle.IsAlive())
+			{
+				_particle.Play();
+			}
+		}
 
 	}
 }

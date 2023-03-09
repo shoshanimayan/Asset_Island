@@ -77,18 +77,13 @@ namespace UI
 		{
 			if (Vector3.Dot(_camera.forward,(_target.position-_camera.position).normalized)>= _fieldOfView)
 			{
-				var direction = _camera.InverseTransformPoint(_target.position);
-				//var angle = -Mathf.Atan2(direction.x, -direction.y) * Mathf.Rad2Deg;
-
 				_TrackerObj.transform.localEulerAngles = new Vector3(0.0f, 0.0f, 0);
 				_tracker.enabled = true;
-				//
 			}
 			else
 			{
 				var direction = _camera.InverseTransformPoint(_target.position);
 				var angle = -Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-
 				_TrackerObj.transform.localEulerAngles = new Vector3(0.0f, 0.0f, angle);
 				_tracker.enabled = true;
 			}
@@ -97,7 +92,6 @@ namespace UI
 		///  PUBLIC API                ///
 		public void SetTarget(Transform t)
 		{
-			print(t);
 			_target = t;
 			if (_target == null)
 			{

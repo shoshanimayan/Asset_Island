@@ -33,6 +33,15 @@ namespace Interactables
 		{
 
 		}
+
+		private void OnHint(SetHintTransformSignal signal)
+		{
+			Debug.Log(_view.transform == signal.HintTransform);
+			if (_view.transform == signal.HintTransform)
+			{
+				_view.PlayParticle();
+			}
+		}
 		///  PUBLIC API                ///
 		public void SendHelpText(string text)
 		{
@@ -61,6 +70,8 @@ namespace Interactables
 
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+			_signalBus.GetStream<SetHintTransformSignal>()
+					   .Subscribe(x => OnHint(x)).AddTo(_disposables);
 		}
 
 		public void Dispose()

@@ -31,7 +31,7 @@ namespace Audio
 					break;
 				case State.Menu:
 					_view.SetAudio("Menu");
-					_view.setVolume(_volume);
+					_view.setVolume(_volume / 2);
 
 					break;
 				case State.Loading:

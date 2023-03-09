@@ -5,6 +5,8 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using General;
+
 namespace UI
 {
 	public class NavigationHintMediator: MediatorBase<NavigationHintView>, IInitializable, IDisposable
@@ -34,17 +36,22 @@ namespace UI
 		{
 			if (_canDisplay)
 			{
-				Debug.Log(signal.HintTransform);
 				_view.SetTarget(signal.HintTransform);
 			}
 		}
 		///  PUBLIC API                ///
-
+		public Transform GetPlayerTransform()
+		{
+			Debug.Log(_playerHandler.GetPlayerTransform());
+			return _playerHandler.GetPlayerTransform();
+		}
 		///  IMPLEMENTATION            ///
 
 		[Inject]
-
 		private SignalBus _signalBus;
+
+		[Inject]
+		private PlayerHandler _playerHandler;
 
 		readonly CompositeDisposable _disposables = new CompositeDisposable();
 
@@ -55,6 +62,7 @@ namespace UI
 			_signalBus.GetStream<StateChangeSignal>()
 					   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
 			_view.ForceVisiblilty(false);
+			_view.InitView(this);
 
 		}
 

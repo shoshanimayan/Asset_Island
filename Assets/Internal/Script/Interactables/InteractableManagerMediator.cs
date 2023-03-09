@@ -20,10 +20,10 @@ namespace Interactables
 		private int _counterCurrent = 0;
 		///  PRIVATE METHODS           ///
 		///  
-		private  async Task SetIteractablePositions()
+		private  async Task SetIteractablePositions(Vector3 playerPosition)
 		{
 			List<Vector3> tempPos = new List<Vector3>();
-			tempPos.Add(_playerHandler.GetPlayerWorldPosition());
+			tempPos.Add(playerPosition);
 			foreach (var c in _view.InteractableList)
 			{
 				
@@ -147,7 +147,7 @@ namespace Interactables
 			_signalBus.Fire(new CounterTextSignal() { Text = _counterCurrent.ToString() + "/" + _counterMax.ToString() });
 			_signalBus.Fire(new StartGameSignal());
 
-			await SetIteractablePositions();
+			await SetIteractablePositions(_playerHandler.GetPlayerWorldPosition());
 
 		}
 

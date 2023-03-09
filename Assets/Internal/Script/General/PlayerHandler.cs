@@ -22,6 +22,11 @@ namespace General
 			return _player.localPosition;
 		}
 
+		public Transform GetPlayerTransform()
+		{
+			return _player.transform;
+		}
+
 		public void SetPlayerTransform(Transform t)
 		{
 			_player = t;

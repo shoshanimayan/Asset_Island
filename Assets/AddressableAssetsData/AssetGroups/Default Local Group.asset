@@ -33,6 +33,46 @@ MonoBehaviour:
     m_Address: testitem
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: f1eb8fbbb96e8dd449b1b8ee4862c89e
+    m_Address: Assets/Internal/AssetReferences/item10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f5235fba75a9937408d832ac5be12fb8
+    m_Address: Assets/Internal/AssetReferences/item7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3e732ecb985454047b2012097eefd9c4
+    m_Address: Assets/Internal/AssetReferences/item9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 65bbad7a08b260740ae65c41dc8c809f
+    m_Address: Assets/Internal/AssetReferences/item6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4bb89fd86293bb543acf297db3ee832b
+    m_Address: Assets/Internal/AssetReferences/item8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c1bbfac3db70d804daa10e8eaecacd71
+    m_Address: Assets/Internal/AssetReferences/item2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6ccd002fe69667346b42f28e296ede1c
+    m_Address: Assets/Internal/AssetReferences/item5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: ce821bc711372a54b9ff1b921e8cfd05
+    m_Address: Assets/Internal/AssetReferences/item1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: c2889b7eb11679e48b7fa91bfb5ec2c7
+    m_Address: Assets/Internal/AssetReferences/item4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: eade5a298ffa7e143b84a167cf24f7b2
+    m_Address: Assets/Internal/AssetReferences/item3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 24a35aa606d5b9e458bd1a05f52057bc, type: 2}
   m_SchemaSet:

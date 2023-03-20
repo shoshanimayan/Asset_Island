@@ -16,14 +16,62 @@
     ],
     [
       "0",
-      "test text",
-      "testitem",
+      "You found a little space man, he doesn't seem suspicious at all.\n\nHe seems fully rigged and ready to go, so you could probably use him as a player character, or animate him for some other purposes.",
+      "item1",
       "Interactactable"
     ],
     [
       "1",
-      "test2",
-      "testitem",
+      "Wow a Sea Shell, that would be a cool and logical thing to put in your tropical island environment. \r\n\r\nIf you had a game set on and island and had this asset, it would probably be pretty lazy not to find some way to use it.",
+      "item2",
+      "Interactactable"
+    ],
+    [
+      "2",
+      "A Potion! A fantasy classic, you could do all kinds of things with this, healing, status effects, and fantastical home decor\r\n",
+      "item3",
+      "Interactactable"
+    ],
+    [
+      "3",
+      "A Bull Skull! It's kinda creepy and gross. \r\n\r\nYou could probably get away with using it in a western themed game or a horror game depending how you wanna light it.",
+      "item4",
+      "Interactactable"
+    ],
+    [
+      "4",
+      "It's an Axe! great for fighting, cutting wood, and chopping things in general. \r\n\r\nYou could probably recolor it to get several tiers of axe out of it, how economical of you.",
+      "item5",
+      "Interactactable"
+    ],
+    [
+      "5",
+      "It's a Gun. Should you be worried that you found random discarded gun? probably, but one persons possible tragedy is anothers game mechanic.",
+      "item6",
+      "Interactactable"
+    ],
+    [
+      "6",
+      "Bees. My God. Great for the environment, kinda annoying to deal with, would make for an ideal enemy or obsticle",
+      "item7",
+      "Interactactable"
+    ],
+    [
+      "7",
+      "A Soccer Ball. It's a ball for the sport of soccet, or football depending on where you live.\r\n\r\nObviously, you could use this to make a soccer game, but some with some creativity it could make an interesting prop or be used in some surprising way.",
+      "item8",
+      "Interactactable"
+    ],
+    [
+      "8",
+      "A Chainsaw, hell yea! it's a classic in action and horror games for a reason. Zombies, monsters, and trees beware!",
+      "item9",
+      "Interactactable"
+    ],
+    [
+      "9",
+      "The Iconic Red Barrel, you could probably do a lot of things with it... but you will probably just make it explode.",
+      "item10",
       "Interactactable"
     ]
   ]

@@ -17,7 +17,6 @@ namespace Interactables
 		[SerializeField] private float _maxSoundScale = 1;
 		[SerializeField] private float _minRumbleScale = 0;
 		[SerializeField] private float _maxRumbleScale = 1;
-		[SerializeField] private float _maxHintTimeDuration = 5f;
 		///  PRIVATE VARIABLES         ///
 		private bool _triggered;
 		private InteractableMediator _mediator;

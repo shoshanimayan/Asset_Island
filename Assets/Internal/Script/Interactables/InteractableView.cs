@@ -29,7 +29,10 @@ namespace Interactables
 		///  
 		private void OnDrawGizmos()
 		{
-			Gizmos.DrawWireSphere(transform.position, _radius);	
+			if (!Interacted)
+			{
+				Gizmos.DrawWireSphere(transform.position, _radius);
+			}
 		}
 
 		private void OnTriggerEnter(Collider other)

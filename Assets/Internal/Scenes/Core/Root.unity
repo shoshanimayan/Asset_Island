@@ -1413,8 +1413,6 @@ MonoBehaviour:
   _pauseCanvas: {fileID: 853966173}
   _text: {fileID: 941866837}
   _helperText: {fileID: 1163234011}
-  _ActionInput: {fileID: 1120369429361536294, guid: ca9f5fa95ffab41fb9a615ab714db018,
-    type: 3}
 --- !u!114 &1453236379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3920,7 +3918,7 @@ MonoBehaviour:
   slopeLimit: 80
   useLocalMomentum: 1
   cameraTransform: {fileID: 4343463085848870}
-  _sprintInput: {fileID: 98066816203344766, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _sprintInput: {fileID: 6451733489634179646, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
 --- !u!114 &136958806219237492
 MonoBehaviour:
@@ -3967,7 +3965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: -1680190386980627800, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  _jumpInput: {fileID: -3773547193746787394, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _jumpInput: {fileID: -91966240820456678, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
 --- !u!114 &136958806219237494
 MonoBehaviour:
@@ -3981,11 +3979,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9412fcf7b4014a91082d9a1d40c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ActionInteractInput: {fileID: 1120369429361536294, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _ActionInteractInput: {fileID: 8245558428333636977, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  _PauseInput: {fileID: -2629481397038437722, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _PauseInput: {fileID: -7275830243709188576, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
-  _hintInput: {fileID: 2778551245211473533, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _hintInput: {fileID: -6839211147909323506, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
 --- !u!114 &136958806219237495
 MonoBehaviour:

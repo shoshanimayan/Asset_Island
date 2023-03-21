@@ -42,6 +42,7 @@ namespace Interactables
 							{
 								c.transform.position = hit.point;
 								searching = false;
+								tempPos.Add(hit.point);
 							}
 						}
 					}
@@ -65,6 +66,7 @@ namespace Interactables
 			bool fits = true;
 			foreach (Vector3 pos in positions)
 			{
+			
 				if (Vector3.Distance(pos, newPos) < distanceRestriction)
 				{
 					fits = false;

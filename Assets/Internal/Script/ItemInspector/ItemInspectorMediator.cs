@@ -14,6 +14,7 @@ namespace ItemInspector
 		///  LISTNER METHODS           ///
 		private void OnReadAddressableText(string Name)
 		{
+			Debug.Log(Name);
 			_view.DisplayItem(Name);
 		}
 

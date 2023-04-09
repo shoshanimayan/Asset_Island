@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6214555021384905088}
   - component: {fileID: 6214555021405234464}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: item5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 6214555021386806114}
   - component: {fileID: 6214555021384871329}
   - component: {fileID: 6214555021384871332}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barbarian_Axe_OneHanded_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 8920957651475954056}
   - component: {fileID: 8920957651475954057}
   - component: {fileID: 8920957651475954061}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barbarian_Axe_OneHanded_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 8920957651537170100}
   - component: {fileID: 8920957651537170103}
   - component: {fileID: 8920957651537170056}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barbarian_Axe_OneHanded_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 8920957651756479604}
   - component: {fileID: 8920957651756479613}
   - component: {fileID: 8920957651756479614}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Barbarian_Axe_OneHanded_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

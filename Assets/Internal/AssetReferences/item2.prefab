@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 529608135331815292}
   - component: {fileID: 4684751187421079565}
   - component: {fileID: 1724911888701013640}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: item2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2676233897021766311}
   - component: {fileID: 5976439342355797724}
   - component: {fileID: 5143618789153672828}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: lowPolyShell_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 7380935277756771294}
   - component: {fileID: 6264957885765745375}
   - component: {fileID: 2598477532141283592}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: lowPolyShell_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 5518739964357698014}
   - component: {fileID: 207462732433814306}
   - component: {fileID: 7539260511802251120}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: lowPolyShell_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 6536338102655769033}
   - component: {fileID: 4017931941687293301}
   - component: {fileID: 7062324028696738716}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: lowPolyShell_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

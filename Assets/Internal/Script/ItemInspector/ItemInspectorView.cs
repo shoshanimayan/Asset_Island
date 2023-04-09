@@ -28,9 +28,13 @@ namespace ItemInspector
 			if (opHandle.Status == AsyncOperationStatus.Succeeded)
 			{
 				GameObject obj = opHandle.Result;
-				_displayObject= Instantiate(obj,_displayItemPosition.transform);
-				
+				_displayObject = Instantiate(obj, _displayItemPosition.transform);
 
+
+			}
+			else {
+				Debug.LogError(opHandle.Status);
+			
 			}
 		}
 

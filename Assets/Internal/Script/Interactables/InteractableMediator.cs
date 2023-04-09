@@ -36,7 +36,6 @@ namespace Interactables
 
 		private void OnHint(SetHintTransformSignal signal)
 		{
-			Debug.Log(_view.transform == signal.HintTransform);
 			if (_view.transform == signal.HintTransform)
 			{
 				_view.PlayParticle();

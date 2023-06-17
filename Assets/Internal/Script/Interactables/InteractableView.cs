@@ -121,7 +121,7 @@ namespace Interactables
 			{
 				if (Gamepad.current.added)
 				{
-					key = "Prss X To Interact";
+					key = "Press X To Interact";
 				}
 			}
 			_mediator.SendHelpText(key);

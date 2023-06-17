@@ -24,6 +24,7 @@ namespace Interactables
 			{
 				_view.Interacted = true;
 				_view.StopAudio();
+				_view.DisableHaptics();
 				_signalBus.Fire(new ReadSignal() { ReadIndex = _view.Index });
 
 			}

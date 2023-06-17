@@ -14,7 +14,7 @@ namespace ItemInspector
 		///  LISTNER METHODS           ///
 		private void OnReadAddressableText(string Name)
 		{
-			Debug.Log(Name);
+			_signalBus.Fire(new AudioEffectSignal{ AudioEffectName = "Jingle"});
 			_view.DisplayItem(Name);
 		}
 

@@ -173,5 +173,10 @@ namespace Interactables
 			}
 		}
 
+		public void DisableHaptics()
+		{
+			SetHaptics(0);
+		}
+
 	}
 }

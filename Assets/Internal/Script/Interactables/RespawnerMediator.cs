@@ -21,6 +21,7 @@ namespace Interactables
 		///  PUBLIC API                ///
 		public void SendOutRespawn()
 		{
+			_signalBus.Fire(new AudioEffectSignal { AudioEffectName = "Splash" });
 			_signalBus.Fire(new RespawnSignal());
 		}
 		///  IMPLEMENTATION            ///

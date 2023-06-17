@@ -40,6 +40,8 @@ namespace Audio
 		{
 			_signalBus.GetStream<StateChangeSignal>()
 				   .Subscribe(x => OnStateChanged(x)).AddTo(_disposables);
+			_signalBus.GetStream<AudioEffectSignal>()
+				   .Subscribe(x => OnRecievedAudioSignal(x)).AddTo(_disposables);
 		}
 
 		public void Dispose()

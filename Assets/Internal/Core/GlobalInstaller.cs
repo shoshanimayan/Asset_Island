@@ -26,6 +26,7 @@ public class GlobalInstaller : MonoInstaller<GlobalInstaller>
         Container.DeclareSignal<EndingGameSignal>();
         Container.DeclareSignal<StartGameSignal>();
         Container.DeclareSignal<EndedGameSignal>();
+        Container.DeclareSignal<AudioEffectSignal>();
 
 
     }

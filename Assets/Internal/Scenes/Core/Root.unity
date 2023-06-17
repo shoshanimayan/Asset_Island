@@ -1618,6 +1618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _clips:
   - {fileID: 8300000, guid: 1c1c5e2398c616d469cbe6a1089c90f4, type: 3}
+  - {fileID: 8300000, guid: 7e470accd8f6e1c4aaf8c9792ee80cd2, type: 3}
 --- !u!1 &1483734853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3974,7 +3975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6cfb7a127faec46942ade5f660408a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _CameraMovement: {fileID: -5630151704836100654, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _CameraMovement: {fileID: 1009542011930935429, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
 --- !u!114 &114843918966988422
 MonoBehaviour:
@@ -4018,7 +4019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b66ae9ea51b0b47b5179562ce645d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3
+  movementSpeed: 4.5
   airControlRate: 2
   jumpSpeed: 1
   jumpDuration: 0.2
@@ -4029,7 +4030,7 @@ MonoBehaviour:
   slopeLimit: 80
   useLocalMomentum: 1
   cameraTransform: {fileID: 4343463085848870}
-  _sprintInput: {fileID: 6451733489634179646, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _sprintInput: {fileID: -8349850280278085416, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
 --- !u!114 &136958806219237492
 MonoBehaviour:
@@ -4043,7 +4044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_Actions: {fileID: -944628639613478452, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -4059,7 +4060,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Game
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 20395501677103762}
 --- !u!114 &136958806219237493
@@ -4074,9 +4075,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2c08eed8115ee140b393b2fff3de720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerMovement: {fileID: -1680190386980627800, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _playerMovement: {fileID: -5887246031639561319, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
-  _jumpInput: {fileID: -91966240820456678, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _jumpInput: {fileID: 1414185935977829671, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
 --- !u!114 &136958806219237494
 MonoBehaviour:
@@ -4090,11 +4091,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf9412fcf7b4014a91082d9a1d40c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ActionInteractInput: {fileID: 8245558428333636977, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _ActionInteractInput: {fileID: 2604965828030840291, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
-  _PauseInput: {fileID: -7275830243709188576, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _PauseInput: {fileID: 7945310935507119541, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
-  _hintInput: {fileID: -6839211147909323506, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  _hintInput: {fileID: -8481412070604083826, guid: c92a08d9e8c7e534d82cebace98c33cd,
     type: 3}
 --- !u!114 &136958806219237495
 MonoBehaviour:

@@ -24,9 +24,11 @@ namespace Inputs
 			{
 				case State.Play:
 					_movementEnabled = true;
+					_view.DisableGravity(false);
 					break;
 				default:
 					_movementEnabled = false;
+					_view.DisableGravity(true);
 					break;
 			}
 		}

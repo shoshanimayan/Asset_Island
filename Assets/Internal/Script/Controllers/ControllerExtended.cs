@@ -17,8 +17,8 @@ namespace Controllers
 		protected override void Awake()
 		{
 
-			_sprintInput.action.started += ctx => movementSpeed *= 1.5f;
-			_sprintInput.action.canceled += ctx => movementSpeed /= 1.5f;
+			_sprintInput.action.started += ctx => movementSpeed *= 2f;
+			_sprintInput.action.canceled += ctx => movementSpeed /= 2f;
 
 			base.Awake();
 			gravity = 0;

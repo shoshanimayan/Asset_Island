@@ -17,7 +17,7 @@ namespace Inputs
 		[SerializeField] private InputActionReference _jumpInput;
 
 		///  PRIVATE VARIABLES         ///
-
+		private Rigidbody _rb;
 
 		private CharacterInputExtendedMediator _mediator;
 
@@ -37,6 +37,7 @@ namespace Inputs
 		private void Awake()
 		{
 			_input = new DefaultInputActions();
+			_rb = GetComponent<Rigidbody>();
 		}
 		///  PUBLIC API               ///
 
@@ -82,6 +83,10 @@ namespace Inputs
 			_mediator = mediator;
 		}
 
+		public void DisableGravity(bool enabled)
+		{
+			_rb.isKinematic = enabled;
+		}
 
 	}
 }

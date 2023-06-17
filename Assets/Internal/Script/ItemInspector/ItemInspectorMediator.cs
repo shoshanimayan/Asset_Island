@@ -20,7 +20,8 @@ namespace ItemInspector
 
 		private void OnStateChanged(StateChangeSignal signal)
 		{
-			if (signal.ToState != State.Pause)
+			Debug.Log(signal.ToState);
+			if (signal.ToState != State.Pause && signal.ToState != State.Inspector)
 			{
 				_view.DisposeItem();
 			}

@@ -56,6 +56,8 @@ namespace General
 
 		private void OnEndingGame()
 		{
+			_signalBus.Fire(new AudioEffectSignal { AudioEffectName = "Jingle" });
+
 			string result = "";
 			_view.AddresableTextAsset.LoadAssetAsync<TextAsset>().Completed += handle =>
 			{

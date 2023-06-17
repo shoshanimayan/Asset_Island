@@ -40,11 +40,15 @@ namespace Core
 			_prevState = _state;
 			_state = state;
 			_signalBus.Fire(new StateChangeSignal() { ToState = state });
-
+			
 		}
 
 		public void ToPreviousState()
 		{
+			if (_prevState == State.Pause && _state==State.Inspector)
+			{
+				_prevState = State.Play;
+			}
 			SetState(_prevState);
 		}
 

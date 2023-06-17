@@ -18,12 +18,13 @@ namespace Interactables
 
 		///  PRIVATE METHODS           ///
 
+#if UNITY_EDITOR
 		private void OnDrawGizmosSelected()
 		{
 			Handles.color = Color.red;
 			Handles.DrawWireDisc(transform.position, new Vector3(0, 1, 0), PositionSetRadius);
 		}
 		///  PUBLIC API                ///
-
+#endif
 	}
 }

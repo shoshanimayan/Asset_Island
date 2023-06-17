@@ -4131,6 +4131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e045dcb390b533d4ba8d46c0e96243c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camController: {fileID: 114824084910110898}
   RespawnPos: {x: 714.56, y: 0.54, z: -70.37}
 --- !u!114 &136958806219237497
 MonoBehaviour:

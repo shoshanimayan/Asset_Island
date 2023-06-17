@@ -237,6 +237,12 @@ namespace CMF
 		{
 			return upwardsDirection;
 		}
+
+		public void ResetCurrentAngle()
+		{
+			currentXAngle = 0;
+			currentYAngle = 0;
+		}
 		
 		
 	}

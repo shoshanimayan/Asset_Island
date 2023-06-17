@@ -37,7 +37,7 @@ namespace UI
 
 		public void Unpause()
 		{
-			_stateManager.SetState(State.Play);
+			_stateManager.ToPreviousState();
 		}
 		///  IMPLEMENTATION            ///
 
